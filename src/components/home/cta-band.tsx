@@ -9,7 +9,7 @@ export function CtaBand() {
   return (
     <section className="relative isolate overflow-hidden bg-[#1a1410] py-28 md:py-36 lg:py-44">
       <Image
-        src="/images/garage/showroom-cars.jpg"
+        src="/images/garage/hero.jpg"
         alt=""
         fill
         sizes="100vw"

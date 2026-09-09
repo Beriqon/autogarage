@@ -40,15 +40,19 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-[4.75rem]">
         <Link
           href="/"
-          className="relative inline-flex shrink-0 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className={cn(
+            "relative inline-flex shrink-0 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+            // Keep the white/yellow wordmark readable on the light scrolled header
+            !overHero && "rounded-md bg-ink px-2.5 py-1.5",
+          )}
           aria-label={`${garage.name} – naar home`}
         >
           <Image
             src={garage.logo}
             alt={garage.name}
-            width={160}
-            height={32}
-            className="h-8 w-auto"
+            width={200}
+            height={48}
+            className="h-9 w-auto md:h-10"
             priority
           />
         </Link>

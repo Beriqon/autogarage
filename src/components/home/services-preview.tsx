@@ -37,9 +37,8 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
               Onze diensten
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-white/75 md:text-right md:text-base">
-              Wij bieden meer dan alleen autoverkoop. Met ons complete
-              dienstenaanbod maken wij het aan- en verkoopproces van jouw auto
-              eenvoudig en zorgeloos.
+              APK, onderhoud, diagnose en banden in onze moderne werkplaats —
+              met heldere uitleg en eerlijke prijsafspraken.
             </p>
           </div>
         </Reveal>

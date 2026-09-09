@@ -3,6 +3,7 @@ export const FULL_BLEED_HERO_PATHS = [
   "/",
   "/occasions",
   "/diensten",
+  "/werkplaats",
   "/over-ons",
   "/contact",
 ] as const;

@@ -21,9 +21,9 @@ import { CtaBand } from "@/components/home/cta-band";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Over ons",
-  description: `Leer ${garage.name} in ${garage.address.city} kennen: familiebedrijf met eigen werkplaats, geselecteerde occasions en persoonlijk advies.`,
+  description: `Leer ${garage.name} in ${garage.address.city} kennen: sinds 1983 actief, Opel-specialist met twee vestigingen, geselecteerde occasions en persoonlijke service.`,
   path: "/over-ons",
-  image: "/images/garage/team.jpg",
+  image: "/images/garage/over-ons.jpg",
 });
 
 export default function OverOnsPage() {
@@ -46,17 +46,17 @@ export default function OverOnsPage() {
 
       <PageHero
         title="Over ons"
-        description={`Familiebedrijf in ${garage.address.city} met showroom en werkplaats onder één dak — eerlijk advies, geselecteerde occasions.`}
-        imageSrc="/images/garage/team.jpg"
-        imageAlt={`Het team van ${garage.name}`}
+        description={`Sinds 1983 een begrip in ${garage.address.city}: Opel-specialist met moderne werkplaats, occasions en persoonlijke service.`}
+        imageSrc="/images/garage/over-ons.jpg"
+        imageAlt={`Vestiging van ${garage.name}`}
       />
 
       <section className="bg-paper">
         <div className="grid lg:grid-cols-2">
           <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[680px]">
             <Image
-              src="/images/garage/workshop.jpg"
-              alt={`Werkplaats van ${garage.name}`}
+              src="/images/garage/team.jpg"
+              alt={`Team van ${garage.name}`}
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
@@ -71,20 +71,20 @@ export default function OverOnsPage() {
             <Reveal>
               <div className="max-w-lg">
                 <h2 className="font-display text-[clamp(2rem,3vw+1rem,3rem)] leading-tight tracking-[-0.02em] text-ink">
-                  Al generaties thuis in {garage.address.city}
+                  Sinds 1983 thuis in {garage.address.city}
                 </h2>
                 <p className="mt-6 text-sm leading-relaxed text-muted md:text-base">
-                  Wat begon als een bescheiden werkplaats, groeide uit tot een
-                  autobedrijf waar showroom en onderhoud onder één dak zitten.
-                  Bij {garage.shortName} koopt u geen auto van een anonieme
-                  voorraad — u krijgt advies van mensen die de techniek én de
-                  weg kennen.
+                  Ap van Beek nam in 1983 het bedrijf van voormalig Mazda-dealer
+                  van As over aan de Orderparkweg en startte zijn eigen
+                  garagebedrijf, gespecialiseerd in Opel. Sindsdien groeide het
+                  uit tot een full-service bedrijf met twee vestigingen aan de
+                  Veenweg.
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
-                  We selecteren occasions kritisch, keuren ze in eigen huis en
-                  blijven beschikbaar na aankoop. Of u nu komt voor een
-                  proefrit, APK of periodiek onderhoud: u heeft één
-                  aanspreekpunt.
+                  Met zeven medewerkers ontzorgen we uw mobiliteit: betrouwbare
+                  occasions, onderhoud en reparatie voor Opel én andere merken.
+                  Geen prijsvechter — wel het beste voor een scherpe prijs, met
+                  de klant centraal.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link

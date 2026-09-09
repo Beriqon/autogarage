@@ -32,8 +32,8 @@ export function ServicesShowcase({ services }: ServicesShowcaseProps) {
               Alles onder één dak
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-white/75 md:text-right md:text-base">
-              Van keuring tot diagnose — heldere uitleg, eerlijke prijsafspraken
-              en vakkundig uitgevoerd werk.
+              Van APK tot diagnose — heldere uitleg, eerlijke prijsafspraken
+              en vakkundig uitgevoerd werk in onze werkplaats.
             </p>
           </div>
         </Reveal>

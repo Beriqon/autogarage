@@ -5,6 +5,7 @@ export type NavItem = {
 
 export const mainNav: NavItem[] = [
   { label: "Occasions", href: "/occasions" },
+  { label: "Werkplaats", href: "/werkplaats" },
   { label: "Diensten", href: "/diensten" },
   { label: "Over ons", href: "/over-ons" },
   { label: "Contact", href: "/contact" },
@@ -12,6 +13,7 @@ export const mainNav: NavItem[] = [
 
 export const footerNav: NavItem[] = [
   { label: "Occasions", href: "/occasions" },
+  { label: "Werkplaats", href: "/werkplaats" },
   { label: "Diensten", href: "/diensten" },
   { label: "Over ons", href: "/over-ons" },
   { label: "Contact", href: "/contact" },

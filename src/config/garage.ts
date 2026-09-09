@@ -1,13 +1,14 @@
 import type { GarageConfig } from "@/types/garage";
 
 export const garage: GarageConfig = {
-  name: "Autobedrijf De Kroon",
-  shortName: "De Kroon",
-  legalName: "Autobedrijf De Kroon B.V.",
-  tagline: "Eerlijk, betrouwbaar en persoonlijk",
+  name: "Garage Ap van Beek",
+  shortName: "Ap van Beek",
+  legalName: "Garage Ap van Beek",
+  tagline: "Vakmanschap met ouderwetse service",
   description:
-    "Autobedrijf De Kroon in Amersfoort: scherp geselecteerde occasions, vakkundig onderhoud en persoonlijk advies. Bezoek onze showroom of plan een proefrit.",
-  logo: "/images/brand/logo.svg",
+    "Garage Ap van Beek is sinds 1983 een begrip in Apeldoorn voor aankoop en onderhoud van alle merken, met specialisme Opel. Moderne werkplaats, ruim occasions-aanbod en persoonlijke service.",
+  logo: "/images/brand/logo.png",
+  logoDark: "/images/brand/logo-dark.png",
   colors: {
     ink: "#231913",
     paper: "#F5F3F1",
@@ -18,22 +19,22 @@ export const garage: GarageConfig = {
     accentHover: "#231913",
     success: "#2F6B4F",
   },
-  phone: "+31334567890",
-  phoneDisplay: "033 456 7890",
-  whatsapp: "+31612345678",
-  email: "info@autobedrijfdekroon.nl",
-  website: "https://www.autobedrijfdekroon.nl",
+  phone: "+31553551175",
+  phoneDisplay: "055 355 11 75",
+  whatsapp: "+31553551175",
+  email: "info@apvanbeek.nl",
+  website: "https://apvanbeek.nl",
   address: {
-    street: "Stadsring 142",
-    postalCode: "3811 HP",
-    city: "Amersfoort",
-    region: "Utrecht",
+    street: "Veenweg 44",
+    postalCode: "7336 AG",
+    city: "Apeldoorn",
+    region: "Gelderland",
     country: "Nederland",
     countryCode: "NL",
   },
   coordinates: {
-    lat: 52.1561,
-    lng: 5.3878,
+    lat: 52.1786,
+    lng: 5.9789,
   },
   openingHours: [
     { day: "monday", label: "Maandag", open: "08:30", close: "18:00" },
@@ -44,40 +45,37 @@ export const garage: GarageConfig = {
     { day: "saturday", label: "Zaterdag", open: "09:00", close: "16:00" },
     { day: "sunday", label: "Zondag", open: null, close: null, closed: true },
   ],
-  socials: {
-    facebook: "https://www.facebook.com/autobedrijfdekroon",
-    instagram: "https://www.instagram.com/autobedrijfdekroon",
-  },
-  reviewScore: 4.8,
-  reviewCount: 186,
+  socials: {},
+  reviewScore: 4.9,
+  reviewCount: 41,
   stats: [
-    { label: "jaar ervaring", value: "28+" },
-    { label: "occasions op voorraad", value: "50+" },
-    { label: "tevreden klanten", value: "3.200+" },
-    { label: "Google-score", value: "4,8" },
+    { label: "jaar ervaring", value: "40+" },
+    { label: "occasions op voorraad", value: "12+" },
+    { label: "medewerkers", value: "7" },
+    { label: "Google-score", value: "4,9" },
   ],
   uspItems: [
     {
-      title: "Uitgebreid aanbod",
+      title: "Sinds 1983",
       description:
-        "Een breed en zorgvuldig geselecteerd aanbod aan jong gebruikte auto’s en occasions in diverse prijsklassen.",
+        "Al meer dan veertig jaar een begrip in Apeldoorn en verre omstreken — voor aankoop én onderhoud van alle merken.",
     },
     {
-      title: "Kwaliteitsgarantie",
+      title: "Opel-specialist",
       description:
-        "Elke auto wordt grondig geïnspecteerd. U profiteert van duidelijke garantie, transparantie en zorgeloos rijplezier.",
+        "Specialisme in Opel, nieuw en gebruikt. Ook voor andere merken bent u van harte welkom in onze werkplaats.",
     },
     {
-      title: "Deskundig advies",
+      title: "Persoonlijke service",
       description:
-        "Persoonlijk advies van oriëntatie tot aflevering — zonder druk, met aandacht voor uw wensen en budget.",
+        "Geen prijsvechter, wel het beste voor een scherpe prijs. De klant staat centraal — Ap van Beek staat u graag persoonlijk te woord.",
     },
     {
-      title: "Eigen werkplaats",
+      title: "Moderne werkplaats",
       description:
-        "APK, onderhoud en diagnose onder één dak — snel geholpen door ervaren monteurs in Amersfoort.",
+        "APK, onderhoud, aircoservice, banden en storingsdiagnose met moderne gereedschappen en diagnoseapparatuur.",
     },
   ],
-  kvk: "12345678",
-  btw: "NL001234567B01",
+  kvk: "54620627",
+  btw: "NL851375169B01",
 };

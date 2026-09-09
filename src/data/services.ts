@@ -11,6 +11,7 @@ export const services: Service[] = [
       "Laat uw auto keuren door onze RDW-erkende keurmeesters. Wij controleren grondig, leggen bevindingen helder uit en kunnen kleine gebreken vaak direct meenemen in de werkplaats.",
     image: "/images/garage/apk.jpg",
     featured: true,
+    category: "workshop",
     priceFrom: 49.95,
     priceLabel: "vanaf",
     highlights: [
@@ -53,6 +54,7 @@ export const services: Service[] = [
       "Van grote tot kleine beurt: olie, filters, remmen en slijtageonderdelen. We werken merkoverstijgend en volgen de onderhoudsintervallen van de fabrikant.",
     image: "/images/garage/maintenance.jpg",
     featured: true,
+    category: "workshop",
     priceFrom: 149,
     priceLabel: "vanaf",
     highlights: [
@@ -90,6 +92,7 @@ export const services: Service[] = [
       "Met moderne diagnoseapparatuur lezen we merkspecifieke systemen uit. U krijgt een heldere uitleg van de oorzaak en een offerte vóór we repareren.",
     image: "/images/garage/diagnostics.jpg",
     featured: true,
+    category: "workshop",
     priceFrom: 69,
     priceLabel: "vanaf",
     highlights: [
@@ -103,7 +106,7 @@ export const services: Service[] = [
       "Startproblemen of waarschuwingen in het display",
     ],
     whyUs: [
-      "Ervaring met Duitse én Japanse merken",
+      "Ervaring met Opel én andere merken",
       "Geen giswerk — meten is weten",
       "Snelle doorlooptijd",
     ],
@@ -126,6 +129,7 @@ export const services: Service[] = [
       "Winter- en zomerbanden wisselen, opslaan of nieuw aanschaffen. We controleren profieldiepte, spanning en slijtagepatroon.",
     image: "/images/garage/tires.jpg",
     featured: true,
+    category: "workshop",
     priceFrom: 25,
     priceLabel: "wissel vanaf",
     highlights: [
@@ -163,6 +167,7 @@ export const services: Service[] = [
       "Een goed werkende airco is comfortabel én veilig (ontwaseming). Wij controleren lekken, vullen koudemiddel bij en reinigen het systeem waar nodig.",
     image: "/images/garage/airco.jpg",
     featured: false,
+    category: "workshop",
     priceFrom: 89,
     priceLabel: "vanaf",
     highlights: [
@@ -191,38 +196,166 @@ export const services: Service[] = [
   },
   {
     id: "s-006",
-    slug: "remmen-onderhoud",
-    name: "Remmen",
+    slug: "schadeherstel",
+    name: "Schadeherstel",
     shortDescription:
-      "Controle en vervanging van remblokken, schijven en remvloeistof.",
+      "Herstel van blikschade en cosmetische schade — netjes afgewerkt, klaar voor de weg.",
     description:
-      "Veilig remmen begint bij goed onderhoud. We meten slijtage, controleren de remvloeistof en vervangen onderdelen met A-kwaliteit materialen.",
+      "Heeft u schade aan uw auto? Wij beoordelen de schade, stemmen af met uw verzekeraar waar nodig en herstellen uw auto vakkundig. Van kleine deukjes tot grotere herstelklussen.",
     image: "/images/garage/brakes.jpg",
     featured: false,
-    priceFrom: 119,
-    priceLabel: "vanaf",
+    category: "workshop",
+    priceFrom: undefined,
+    priceLabel: "op aanvraag",
     highlights: [
-      "Gratis remcheck bij APK/onderhoud",
-      "A-kwaliteit onderdelen",
-      "Proefrit na reparatie",
+      "Schadebeoordeling",
+      "Afstemming met verzekeraar",
+      "Vakkundig herstel",
+      "Nazorg en oplevering",
     ],
     whenNeeded: [
-      "Piepende of vibrerende remmen",
-      "Langere remweg",
-      "Remvloeistof ouder dan 2 jaar",
+      "Na een aanrijding of parkeerschade",
+      "Bij hagelschade of cosmetische schade",
+      "Wanneer u een nette oplevering wilt",
     ],
     whyUs: [
-      "Veiligheid eerst",
-      "Transparante offerte",
-      "Ervaren monteurs",
+      "Ervaren werkplaats in Apeldoorn",
+      "Transparante communicatie",
+      "Combinatie met APK of onderhoud mogelijk",
     ],
     faq: [
       {
-        question: "Moeten blokken en schijven altijd samen?",
+        question: "Werken jullie met verzekeraars?",
         answer:
-          "Niet altijd. We meten de schijven en adviseren alleen wat technisch nodig is.",
+          "Ja, we kunnen de schadeafhandeling met uw verzekeraar afstemmen. Neem contact op voor de mogelijkheden.",
       },
     ],
-    relatedSlugs: ["apk-keuring", "onderhoudsbeurt"],
+    relatedSlugs: ["apk-keuring", "autoverzekering"],
+  },
+  {
+    id: "s-007",
+    slug: "private-lease",
+    name: "Private lease",
+    shortDescription:
+      "Rijden in een auto met een vast maandbedrag — zonder grote aanschaf in één keer.",
+    description:
+      "Wilt u bij Garage Ap van Beek een auto aanschaffen, maar liever niet het hele bedrag in één keer betalen? Met private lease betaalt u elke maand een vast bedrag. Verzekering, wegenbelasting en onderhoud zijn inbegrepen; alleen tanken doet u zelf. Wij werken samen met een gespecialiseerde leasemaatschappij en geven u vooraf een helder beeld van wat erbij zit en wat de maandelijkse kosten zijn.",
+    image: "/images/garage/private-lease.jpg",
+    featured: true,
+    category: "mobility",
+    priceLabel: "op maat",
+    highlights: [
+      "Vast maandbedrag",
+      "Verzekering, wegenbelasting & onderhoud inbegrepen",
+      "Geen fiscale bijtelling (particulier)",
+      "Duidelijke kilometerafspraak vooraf",
+    ],
+    whenNeeded: [
+      "U wilt een auto zonder grote eenmalige investering",
+      "U zoekt overzichtelijke maandelijkse kosten",
+      "U wilt ontzorgd worden rond verzekering en onderhoud",
+    ],
+    whyUs: [
+      "Advies via uw vertrouwde garage in Apeldoorn",
+      "Samenwerking met gespecialiseerde lease-partner",
+      "Heldere uitleg over inbegrepen kosten",
+    ],
+    faq: [
+      {
+        question: "Wat is private lease precies?",
+        answer:
+          "Private lease is een vorm van huren: de auto blijft eigendom van de leasemaatschappij. Aan het eind van de looptijd levert u de auto weer in. U betaalt een vast maandbedrag en heeft geen omkijken naar verzekering, wegenbelasting of onderhoud.",
+      },
+      {
+        question: "Kan ik private lease via jullie regelen?",
+        answer:
+          "Ja. Neem contact op of kom langs; wij bespreken de mogelijkheden en de maandelijkse kosten voor uw situatie.",
+      },
+    ],
+    relatedSlugs: ["autoverzekering", "onderhoudsbeurt"],
+  },
+  {
+    id: "s-008",
+    slug: "autoverzekering",
+    name: "Autoverzekering",
+    shortDescription:
+      "Verzekering op maat bij aankoop — WA, WA+ of Allrisk, direct geregeld.",
+    description:
+      "Koopt u een (nieuwe) auto, dan moet die vanaf dag één goed verzekerd zijn. Bij Garage Ap van Beek regelen we dat graag mee. We voeren de gegevens van uw auto in en geven een offerte op maat. U kiest zelf de dekking: WA, WA+ Beperkt Casco of Allrisk. Zo heeft u alles in één keer geregeld — en bij schade regelen wij reparatie en afhandeling.",
+    image: "/images/garage/autoverzekering.jpg",
+    featured: true,
+    category: "mobility",
+    priceLabel: "offerte op maat",
+    highlights: [
+      "Offerte op maat bij aankoop",
+      "Keuze uit WA, WA+ of Allrisk",
+      "Alles in één keer geregeld",
+      "Schadeherstel in onze werkplaats",
+    ],
+    whenNeeded: [
+      "Bij aankoop van een nieuwe of gebruikte auto",
+      "Wanneer u dekking wilt herzien",
+      "Als u schade wilt laten afhandelen via ons",
+    ],
+    whyUs: [
+      "Persoonlijk advies in de showroom",
+      "Direct afsluiten bij oplevering mogelijk",
+      "Bekende monteurs bij schade — geen vreemde garage",
+    ],
+    faq: [
+      {
+        question: "Welke dekking past bij mij?",
+        answer:
+          "Dat hangt af van leeftijd, waarde en accessoires van de auto, en wat u belangrijk vindt. Wij helpen u bij die keuze.",
+      },
+      {
+        question: "Regelen jullie ook schade?",
+        answer:
+          "Ja. Bij schade nemen we reparatie en afhandeling uit handen, zodat u bij uw vertrouwde garage blijft.",
+      },
+    ],
+    relatedSlugs: ["schadeherstel", "private-lease"],
+  },
+  {
+    id: "s-009",
+    slug: "bovag-pechhulp",
+    name: "BOVAG Pechhulp",
+    shortDescription:
+      "Pech onderweg? 24/7 hulp via BOVAG Pechhulp — snel weer op weg.",
+    description:
+      "Ook met goed onderhoud kan pech onderweg voorkomen. Bij Garage Ap van Beek bieden we pechservice in samenwerking met BOVAG Pechhulp. Bij panne belt u het speciale nummer; BOVAG Pechhulp schakelt uw BOVAG-autobedrijf of een professionele hulpdienst in. Zo bent u 24 uur per dag, 7 dagen per week gedekt.",
+    image: "/images/garage/pechhulp.jpg",
+    featured: true,
+    category: "mobility",
+    priceLabel: "op aanvraag",
+    highlights: [
+      "Samenwerking met BOVAG Pechhulp",
+      "24/7 bereikbaar",
+      "Snelle hulp bij pech onderweg",
+      "Kosten en dekking in overleg",
+    ],
+    whenNeeded: [
+      "U wilt zekerheid bij pech onderweg",
+      "U reist veel of lange afstanden",
+      "U wilt pechhulp via uw BOVAG-garage",
+    ],
+    whyUs: [
+      "Gekoppeld aan uw vertrouwde garage",
+      "Landelijke BOVAG-dekking",
+      "Persoonlijk advies over kosten en mogelijkheden",
+    ],
+    faq: [
+      {
+        question: "Hoe werkt BOVAG Pechhulp?",
+        answer:
+          "Bij pech belt u het pechnummer. BOVAG Pechhulp schakelt direct uw BOVAG-autobedrijf of een professionele hulpdienst in om u weer op weg te helpen.",
+      },
+      {
+        question: "Wat kost pechhulp?",
+        answer:
+          "De prijs hangt af van de gekozen dekking. Neem contact op; we bespreken de mogelijkheden en kosten.",
+      },
+    ],
+    relatedSlugs: ["onderhoudsbeurt", "diagnose"],
   },
 ];

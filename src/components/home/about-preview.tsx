@@ -11,7 +11,7 @@ export function AboutPreview() {
       <div className="grid lg:grid-cols-2">
         <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[640px]">
           <Image
-            src="/images/garage/workshop.jpg"
+            src="/images/garage/about-welcome.jpg"
             alt={`Werkplaats van ${garage.name}`}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
@@ -27,13 +27,13 @@ export function AboutPreview() {
           <Reveal>
             <div className="max-w-lg">
               <h2 className="font-display text-[clamp(2rem,3vw+1rem,3rem)] leading-tight tracking-[-0.02em] text-ink">
-                Met {garage.stats[0]?.value} jaar ervaring en{" "}
-                {garage.stats[2]?.value} tevreden klanten
+                Met {garage.stats[0]?.value} jaar ervaring in{" "}
+                {garage.address.city}
               </h2>
               <p className="mt-6 text-sm leading-relaxed text-muted md:text-base">
-                Wij zijn trots op wat we hebben opgebouwd: een garage waar u
-                rustig kunt kiezen, eerlijk advies krijgt en altijd welkom bent —
-                voor verkoop én werkplaats.
+                Garage Ap van Beek is al sinds 1983 een begrip voor aankoop en
+                onderhoud van alle merken — met specialisme Opel. Vakmanschap
+                gepaard met ouderwetse service.
               </p>
               <Link
                 href="/over-ons"

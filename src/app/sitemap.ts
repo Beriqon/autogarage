@@ -7,6 +7,7 @@ const staticRoutes = [
   "/",
   "/occasions",
   "/diensten",
+  "/werkplaats",
   "/over-ons",
   "/contact",
   "/afspraak",
@@ -21,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: absoluteUrl(path),
     lastModified: now,
     changeFrequency: path === "/" || path === "/occasions" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : path === "/occasions" || path === "/diensten" ? 0.9 : 0.7,
+    priority: path === "/" ? 1 : path === "/occasions" || path === "/diensten" || path === "/werkplaats" ? 0.9 : 0.7,
   }));
 
   const vehicleEntries: MetadataRoute.Sitemap = getAllVehicleSlugs().map(

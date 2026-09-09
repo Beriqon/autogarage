@@ -2,17 +2,20 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { garage } from "@/config/garage";
-import { getServices } from "@/lib/repositories/services";
+import {
+  getServicesByCategory,
+} from "@/lib/repositories/services";
 import { createPageMetadata } from "@/lib/seo";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 import { Reveal } from "@/components/shared/reveal";
 import { PageHero } from "@/components/shared/page-hero";
 import { CtaBand } from "@/components/home/cta-band";
 import { ServicesShowcase } from "@/components/services/services-showcase";
+import { MobilityServices } from "@/components/home/mobility-services";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Diensten",
-  description: `APK, onderhoud, diagnose, banden en airco bij ${garage.name} in ${garage.address.city}. Transparante prijzen en vakkundige werkplaats.`,
+  description: `APK, onderhoud, private lease, autoverzekering en BOVAG pechhulp bij ${garage.name} in ${garage.address.city}.`,
   path: "/diensten",
   image: "/images/garage/workshop.jpg",
 });
@@ -36,7 +39,8 @@ const workshopPillars = [
 ];
 
 export default function DienstenPage() {
-  const services = getServices();
+  const workshopServices = getServicesByCategory("workshop");
+  const mobilityServices = getServicesByCategory("mobility");
 
   const breadcrumbs = [
     { name: "Home", path: "/" },
@@ -53,12 +57,14 @@ export default function DienstenPage() {
 
       <PageHero
         title="Diensten"
-        description={`Van APK tot diagnose: bij ${garage.shortName} in ${garage.address.city} bent u verzekerd van vakkundig onderhoud, heldere uitleg en eerlijke prijsafspraken.`}
+        description={`Van werkplaats tot private lease: bij ${garage.shortName} in ${garage.address.city} regelt u onderhoud, verzekering en pechhulp onder één dak.`}
         imageSrc="/images/garage/workshop.jpg"
         imageAlt={`Werkplaats van ${garage.name} in ${garage.address.city}`}
       />
 
-      <ServicesShowcase services={services} />
+      <MobilityServices services={mobilityServices} />
+
+      <ServicesShowcase services={workshopServices} />
 
       <section className="bg-paper">
         <div className="grid lg:grid-cols-2">
@@ -86,12 +92,20 @@ export default function DienstenPage() {
                   Geen verkooppraatjes, wel vakmanschap. We denken mee over wat
                   nodig is — en wat beter kan wachten.
                 </p>
-                <Link
-                  href="/afspraak"
-                  className="mt-8 inline-flex rounded-full bg-ink px-7 py-2.5 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]"
-                >
-                  Plan een afspraak
-                </Link>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link
+                    href="/afspraak"
+                    className="inline-flex rounded-full bg-ink px-7 py-2.5 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.03]"
+                  >
+                    Plan een afspraak
+                  </Link>
+                  <Link
+                    href="/werkplaats"
+                    className="inline-flex rounded-full border border-ink/20 bg-transparent px-7 py-2.5 text-sm font-medium text-ink transition-transform duration-300 hover:scale-[1.03]"
+                  >
+                    Bekijk de werkplaats
+                  </Link>
+                </div>
               </div>
             </Reveal>
 

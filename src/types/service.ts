@@ -3,6 +3,8 @@ export type ServiceFaq = {
   answer: string;
 };
 
+export type ServiceCategory = "workshop" | "mobility";
+
 export type Service = {
   id: string;
   slug: string;
@@ -11,6 +13,7 @@ export type Service = {
   description: string;
   image: string;
   featured: boolean;
+  category: ServiceCategory;
   priceFrom?: number;
   priceLabel?: string;
   highlights: string[];

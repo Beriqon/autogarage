@@ -64,6 +64,8 @@ export type GarageConfig = {
   tagline: string;
   description: string;
   logo: string;
+  /** Logo variant for light backgrounds (dark wordmark). */
+  logoDark?: string;
   colors: GarageColors;
   phone: string;
   phoneDisplay: string;

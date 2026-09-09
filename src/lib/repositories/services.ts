@@ -1,5 +1,5 @@
 import { services } from "@/data/services";
-import type { Service } from "@/types/service";
+import type { Service, ServiceCategory } from "@/types/service";
 
 export function getServices(): Service[] {
   return services;
@@ -13,8 +13,21 @@ export function getAllServiceSlugs(): string[] {
   return services.map((service) => service.slug);
 }
 
-export function getFeaturedServices(limit = 3): Service[] {
-  return services.filter((service) => service.featured).slice(0, limit);
+export function getServicesByCategory(category: ServiceCategory): Service[] {
+  return services.filter((service) => service.category === category);
+}
+
+export function getFeaturedServices(
+  limit = 3,
+  category?: ServiceCategory,
+): Service[] {
+  return services
+    .filter(
+      (service) =>
+        service.featured &&
+        (category == null || service.category === category),
+    )
+    .slice(0, limit);
 }
 
 export function getRelatedServices(slug: string, limit = 3): Service[] {

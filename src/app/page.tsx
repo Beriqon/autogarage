@@ -10,6 +10,7 @@ import {
 import { Hero } from "@/components/home/hero";
 import { FeaturedOccasions } from "@/components/home/featured-occasions";
 import { ServicesPreview } from "@/components/home/services-preview";
+import { MobilityServices } from "@/components/home/mobility-services";
 import { StatsBand } from "@/components/home/stats-band";
 import { AboutPreview } from "@/components/home/about-preview";
 import { WorkshopGallery } from "@/components/home/workshop-gallery";
@@ -20,12 +21,13 @@ export const metadata: Metadata = createPageMetadata({
   title: `Occasions & garage in ${garage.address.city}`,
   description: garage.description,
   path: "/",
-  image: "/images/garage/hero.jpg",
+  image: "/images/garage/vestiging-hero.jpg",
 });
 
 export default function Home() {
   const vehicles = getFeaturedVehicles(4);
-  const services = getFeaturedServices(4);
+  const workshopServices = getFeaturedServices(4, "workshop");
+  const mobilityServices = getFeaturedServices(3, "mobility");
   const reviews = getFeaturedReviews(3);
   const gallery = getFeaturedGallery(6);
 
@@ -33,7 +35,8 @@ export default function Home() {
     <>
       <Hero />
       <FeaturedOccasions vehicles={vehicles} />
-      <ServicesPreview services={services} />
+      <ServicesPreview services={workshopServices} />
+      <MobilityServices services={mobilityServices} />
       <StatsBand />
       <AboutPreview />
       <WorkshopGallery images={gallery} />

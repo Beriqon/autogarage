@@ -28,9 +28,9 @@ export function Footer() {
               <Image
                 src={garage.logo}
                 alt={garage.name}
-                width={180}
-                height={36}
-                className="h-9 w-auto"
+                width={220}
+                height={52}
+                className="h-11 w-auto"
               />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
