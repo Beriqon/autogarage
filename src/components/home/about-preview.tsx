@@ -8,8 +8,8 @@ const pillars = garage.uspItems.slice(0, 3);
 export function AboutPreview() {
   return (
     <section className="bg-paper">
-      <div className="grid lg:grid-cols-2">
-        <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[640px]">
+      <div className="grid md:grid-cols-2">
+        <Reveal className="relative min-h-[280px] overflow-hidden sm:min-h-[360px] md:min-h-[520px] lg:min-h-[640px]">
           <Image
             src="/images/garage/about-welcome.jpg"
             alt={`Werkplaats van ${garage.name}`}
@@ -18,7 +18,7 @@ export function AboutPreview() {
             className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
           />
           <div
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.1)_0%,rgba(26,20,16,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(26,20,16,0)_60%,rgba(245,243,241,0.15)_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.1)_0%,rgba(18,21,26,0.35)_100%)] md:bg-[linear-gradient(90deg,rgba(18,21,26,0)_60%,rgba(242,243,245,0.15)_100%)]"
             aria-hidden
           />
         </Reveal>
@@ -31,9 +31,8 @@ export function AboutPreview() {
                 {garage.address.city}
               </h2>
               <p className="mt-6 text-sm leading-relaxed text-muted md:text-base">
-                Garage Ap van Beek is al sinds 1983 een begrip voor aankoop en
-                onderhoud van alle merken — met specialisme Opel. Vakmanschap
-                gepaard met ouderwetse service.
+                {garage.description} Ons team van monteurs zorgt dat uw
+                auto veilig en soepel blijft rijden.
               </p>
               <Link
                 href="/over-ons"

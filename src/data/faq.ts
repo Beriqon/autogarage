@@ -16,6 +16,13 @@ export const faq: FaqItem[] = [
     category: "occasions",
   },
   {
+    id: "f-007",
+    question: "Kan ik een occasion leasen?",
+    answer:
+      "Ja. Op elke auto staat een indicatief maandbedrag. Op de detailpagina rekent u financial lease (ondernemers) of autofinanciering (particulier) en vraagt u een vrijblijvende offerte aan. Let op: geld lenen kost geld.",
+    category: "occasions",
+  },
+  {
     id: "f-003",
     question: "Kan ik mijn auto inruilen?",
     answer:

@@ -40,10 +40,28 @@ export function buildAppointmentWhatsAppMessage(
   return `Hallo ${garage.shortName}, ik wil graag ${topic} maken.`;
 }
 
+export function buildSellCarWhatsAppMessage(garage: GarageConfig): string {
+  return [
+    `Hallo ${garage.shortName},`,
+    "",
+    "Ik wil mijn auto verkopen of inruilen. Kunnen jullie een vrijblijvend bod uitbrengen?",
+  ].join("\n");
+}
+
 export function buildServiceWhatsAppMessage(
   garage: GarageConfig,
   service: Service,
 ): string {
+  if (service.cta === "phone") {
+    return [
+      `Hallo ${garage.shortName},`,
+      "",
+      `Ik heb hulp nodig van jullie ${service.name}.`,
+      "",
+      "Kunnen jullie mij komen ophalen?",
+    ].join("\n");
+  }
+
   return [
     `Hallo ${garage.shortName},`,
     "",

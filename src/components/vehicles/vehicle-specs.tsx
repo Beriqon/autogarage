@@ -1,4 +1,4 @@
-import type { Vehicle } from "@/types/vehicle";
+import type { SpecSection, Vehicle } from "@/types/vehicle";
 import { formatMileage } from "@/lib/format";
 import {
   bodyLabel,
@@ -17,82 +17,94 @@ type VehicleSpecsProps = {
   className?: string;
 };
 
-function buildSpecRows(vehicle: Vehicle): SpecRow[] {
+function fallbackSections(vehicle: Vehicle): SpecSection[] {
   const { specifications } = vehicle;
-  const rows: SpecRow[] = [
+  const general: SpecRow[] = [
     { label: "Bouwjaar", value: String(vehicle.year) },
     { label: "Kilometerstand", value: formatMileage(vehicle.mileage) },
-    { label: "Brandstof", value: fuelLabel(vehicle.fuel) },
-    { label: "Transmissie", value: transmissionLabel(vehicle.transmission) },
-    { label: "Vermogen", value: `${vehicle.power} pk` },
     { label: "Carrosserie", value: bodyLabel(vehicle.bodyType) },
     { label: "Kleur", value: vehicle.color },
   ];
+  const motor: SpecRow[] = [
+    { label: "Brandstof", value: fuelLabel(vehicle.fuel) },
+    { label: "Transmissie", value: transmissionLabel(vehicle.transmission) },
+    { label: "Vermogen", value: `${vehicle.power} pk` },
+  ];
 
-  if (specifications.doors != null) {
-    rows.push({ label: "Deuren", value: String(specifications.doors) });
-  }
-  if (specifications.seats != null) {
-    rows.push({ label: "Zitplaatsen", value: String(specifications.seats) });
-  }
-  if (specifications.engineSize) {
-    rows.push({ label: "Motorinhoud", value: `${specifications.engineSize} L` });
-  }
-  if (specifications.emissionClass) {
-    rows.push({
-      label: "Emissieklasse",
-      value: specifications.emissionClass,
-    });
-  }
-  if (specifications.colorInterior) {
-    rows.push({
-      label: "Interieur",
-      value: specifications.colorInterior,
-    });
-  }
-  if (specifications.consumption) {
-    rows.push({
-      label: "Verbruik",
-      value: specifications.consumption,
-    });
-  }
-  if (specifications.acceleration) {
-    rows.push({
-      label: "0–100 km/u",
-      value: specifications.acceleration,
-    });
-  }
-  if (specifications.topSpeed) {
-    rows.push({ label: "Topsnelheid", value: specifications.topSpeed });
-  }
-  if (specifications.weight) {
-    rows.push({ label: "Gewicht", value: specifications.weight });
-  }
+  const push = (rows: SpecRow[], label: string, value?: string | number) => {
+    if (value == null || value === "") return;
+    rows.push({ label, value: String(value) });
+  };
 
-  return rows;
+  push(general, "Kenteken", specifications.licensePlate);
+  push(general, "BTW of marge", specifications.vatOrMargin);
+  push(general, "Eerste toelating", specifications.registrationDate);
+  push(
+    general,
+    "Eerste toelating (internationaal)",
+    specifications.registrationDateIntl,
+  );
+  push(general, "APK tot", specifications.apkUntil);
+  push(general, "Deuren", specifications.doors);
+  push(general, "Zitplaatsen", specifications.seats);
+  push(general, "Gewicht", specifications.weight);
+  push(general, "Wegenbelasting", specifications.roadTax);
+  push(general, "Sleutels", specifications.keys);
+  push(general, "Handzenders", specifications.remotes);
+  push(general, "Interieur", specifications.colorInterior);
+  push(motor, "Motorinhoud", specifications.engineSize ? `${specifications.engineSize} L` : undefined);
+  push(motor, "Cilinders", specifications.cylinders);
+  push(motor, "Vermogen (kW)", specifications.powerKw);
+  push(motor, "Koppel", specifications.torque);
+  push(motor, "Max. toeren", specifications.maxRpm);
+  push(motor, "Topsnelheid", specifications.topSpeed);
+  push(motor, "0–100 km/u", specifications.acceleration);
+  push(motor, "Verbruik", specifications.consumption);
+  push(motor, "Emissieklasse", specifications.emissionClass);
+
+  return [
+    { title: "Algemeen", rows: general },
+    { title: "Motor en transmissie", rows: motor },
+  ].filter((section) => section.rows.length > 0);
+}
+
+function SpecGrid({ rows }: { rows: SpecRow[] }) {
+  return (
+    <dl className="grid border-t border-line sm:grid-cols-2">
+      {rows.map((row) => (
+        <div
+          key={`${row.label}-${row.value}`}
+          className="flex items-baseline justify-between gap-4 border-b border-line py-3 pr-4 sm:odd:pr-6 sm:even:pl-6"
+        >
+          <dt className="text-sm text-muted">{row.label}</dt>
+          <dd className="text-right text-sm font-semibold text-ink">{row.value}</dd>
+        </div>
+      ))}
+    </dl>
+  );
 }
 
 export function VehicleSpecs({ vehicle, className }: VehicleSpecsProps) {
-  const rows = buildSpecRows(vehicle);
+  const sections =
+    vehicle.specSections && vehicle.specSections.length > 0
+      ? vehicle.specSections
+      : fallbackSections(vehicle);
 
   return (
     <div className={cn(className)}>
-      <h2 className="font-display text-xl text-ink md:text-2xl">
-        Specificaties
-      </h2>
-      <dl className="mt-6 grid grid-cols-1 border-t border-line sm:grid-cols-2">
-        {rows.map((row) => (
-          <div
-            key={row.label}
-            className="flex items-baseline justify-between gap-4 border-b border-line py-3.5 pr-4 sm:odd:pr-8 sm:even:pl-8"
-          >
-            <dt className="text-sm text-muted">{row.label}</dt>
-            <dd className="text-sm font-semibold text-ink text-right">
-              {row.value}
-            </dd>
-          </div>
+      <h2 className="font-display text-xl text-ink md:text-2xl">Specificaties</h2>
+      <div className="mt-6 space-y-8">
+        {sections.map((section) => (
+          <section key={section.title}>
+            <h3 className="text-sm font-semibold tracking-wide text-ink uppercase">
+              {section.title}
+            </h3>
+            <div className="mt-3">
+              <SpecGrid rows={section.rows} />
+            </div>
+          </section>
         ))}
-      </dl>
+      </div>
     </div>
   );
 }

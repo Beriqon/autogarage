@@ -34,7 +34,7 @@ export function Header() {
         "fixed top-0 right-0 left-0 z-40 transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300",
         overHero
           ? "border-b border-transparent bg-transparent"
-          : "border-b border-line bg-surface/95 shadow-[0_1px_0_rgba(35,25,19,0.06)] backdrop-blur-md",
+          : "border-b border-line bg-surface/95 shadow-[0_1px_0_rgba(18,21,26,0.06)] backdrop-blur-md",
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-[4.75rem]">
@@ -42,17 +42,15 @@ export function Header() {
           href="/"
           className={cn(
             "relative inline-flex shrink-0 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
-            // Keep the white/yellow wordmark readable on the light scrolled header
-            !overHero && "rounded-md bg-ink px-2.5 py-1.5",
           )}
           aria-label={`${garage.name} – naar home`}
         >
           <Image
             src={garage.logo}
             alt={garage.name}
-            width={200}
-            height={48}
-            className="h-9 w-auto md:h-10"
+            width={128}
+            height={128}
+            className="size-12 rounded-full lg:size-16"
             priority
           />
         </Link>

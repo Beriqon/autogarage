@@ -7,16 +7,20 @@ type ReviewsProps = {
   reviews: Review[];
 };
 
-export function Reviews({ reviews }: ReviewsProps) {
-  const score = garage.reviewScore.toLocaleString("nl-NL", {
+function formatScore(score: number) {
+  return score.toLocaleString("nl-NL", {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   });
+}
+
+export function Reviews({ reviews }: ReviewsProps) {
+  const { googleReviews, trustpilotReviews, reviewCount } = garage;
 
   if (reviews.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#1a1410] text-white">
+    <section className="relative overflow-hidden bg-[#12151a] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
@@ -34,26 +38,43 @@ export function Reviews({ reviews }: ReviewsProps) {
             <h2 className="shrink-0 font-display text-[clamp(2rem,3vw+1rem,3rem)] leading-tight tracking-[-0.02em] text-white">
               Wat klanten zeggen
             </h2>
-            <p className="max-w-md text-sm leading-relaxed text-white/75 md:text-right md:text-base">
-              {score} / 5 op basis van {garage.reviewCount} Google-reviews —
-              eerlijke feedback van mensen die bij ons kochten of lieten
-              onderhouden.
+            <p className="max-w-lg text-sm leading-relaxed text-white/75 md:text-right md:text-base">
+              <a
+                href={googleReviews.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
+              >
+                {formatScore(googleReviews.score)} / 5 op Google
+              </a>{" "}
+              ({googleReviews.count} reviews) en{" "}
+              <a
+                href={trustpilotReviews.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
+              >
+                {formatScore(trustpilotReviews.score)} / 5 op Trustpilot
+              </a>{" "}
+              ({trustpilotReviews.count} reviews). Samen {reviewCount}{" "}
+              beoordelingen — eerlijke feedback van mensen die bij ons kochten
+              of lieten onderhouden.
             </p>
           </div>
         </Reveal>
 
-        <ul className="mt-14 grid gap-0 border-t border-white/15 md:mt-16 md:grid-cols-3">
+        <ul className="mt-14 grid gap-0 border-t border-white/15 sm:mt-16 sm:grid-cols-3">
           {reviews.map((review, index) => (
             <li
               key={review.id}
               className={
                 index > 0
-                  ? "border-t border-white/15 md:border-t-0 md:border-l"
+                  ? "border-t border-white/15 sm:border-t-0 sm:border-l"
                   : undefined
               }
             >
               <Reveal delay={0.06 * index} className="h-full">
-                <blockquote className="flex h-full flex-col px-0 py-10 md:px-8 md:py-12 lg:px-10">
+                <blockquote className="flex h-full flex-col px-0 py-10 sm:px-5 sm:py-12 lg:px-10">
                   <p className="font-display text-[clamp(1.35rem,1.2vw+0.85rem,1.75rem)] leading-snug text-white">
                     “{review.body}”
                   </p>

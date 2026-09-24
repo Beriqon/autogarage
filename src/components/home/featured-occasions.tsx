@@ -20,8 +20,8 @@ export function FeaturedOccasions({ vehicles }: FeaturedOccasionsProps) {
               Uitgelichte occasions
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-muted md:text-right md:text-base">
-              Zorgvuldig geselecteerd, grondig gecontroleerd en klaar voor een
-              proefrit. Persoonlijk advies zonder druk.
+              Zorgvuldig geselecteerd en klaar voor een proefrit. Op elke auto
+              staat vanaf welk bedrag u kunt leasen.
             </p>
           </div>
         </Reveal>
@@ -31,7 +31,7 @@ export function FeaturedOccasions({ vehicles }: FeaturedOccasionsProps) {
             vehicles={vehicles}
             priorityCount={2}
             compactTitle
-            className="xl:grid-cols-4"
+            className="grid-cols-2 lg:grid-cols-4"
           />
         </div>
 

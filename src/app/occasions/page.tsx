@@ -55,7 +55,7 @@ export default async function OccasionsPage({
 
       <PageHero
         title="Occasions"
-        description={`Zorgvuldig geselecteerd, grondig gecontroleerd en klaar voor een proefrit bij ${garage.shortName} in ${garage.address.city}.`}
+        description={`Zorgvuldig geselecteerd en klaar voor een proefrit bij ${garage.shortName} in ${garage.address.city}. Elke auto is ook te leasen: op de kaart staat vanaf welk maandbedrag.`}
         imageSrc="/images/garage/showroom-cars.jpg"
         imageAlt={`Occasionaanbod in de showroom van ${garage.name}`}
       />

@@ -5,6 +5,7 @@ import { footerNav, legalNav } from "@/config/navigation";
 import { Container } from "@/components/ui/container";
 import { OpeningHours } from "@/components/shared/opening-hours";
 import { PhoneLink } from "@/components/shared/phone-link";
+import { SocialLinks } from "@/components/shared/social-links";
 import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 
 function formatAddress() {
@@ -18,7 +19,7 @@ export function Footer() {
   return (
     <footer className="mt-auto border-t border-white/10 bg-ink text-paper">
       <Container className="py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
             <Link
               href="/"
@@ -28,9 +29,9 @@ export function Footer() {
               <Image
                 src={garage.logo}
                 alt={garage.name}
-                width={220}
-                height={52}
-                className="h-11 w-auto"
+                width={160}
+                height={160}
+                className="size-16 rounded-full md:size-20"
               />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
@@ -81,34 +82,12 @@ export function Footer() {
                 </a>
               </p>
             </address>
-            {(garage.socials.facebook || garage.socials.instagram) && (
-              <ul className="mt-5 flex gap-4">
-                {garage.socials.facebook ? (
-                  <li>
-                    <a
-                      href={garage.socials.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white/70 transition-colors hover:text-white"
-                    >
-                      Facebook
-                    </a>
-                  </li>
-                ) : null}
-                {garage.socials.instagram ? (
-                  <li>
-                    <a
-                      href={garage.socials.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white/70 transition-colors hover:text-white"
-                    >
-                      Instagram
-                    </a>
-                  </li>
-                ) : null}
-              </ul>
-            )}
+            <div className="mt-6">
+              <h2 className="font-display text-xs font-semibold tracking-[0.14em] text-white/50 uppercase">
+                Volg ons
+              </h2>
+              <SocialLinks className="mt-3" />
+            </div>
           </div>
 
           <div className="lg:col-span-3">
@@ -134,6 +113,16 @@ export function Footer() {
             ))}
           </ul>
         </div>
+        <p className="mt-6 text-center text-xs tracking-wide text-white/40">
+          <a
+            href="https://geniuzaic.nl"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-colors hover:text-white"
+          >
+            Powered by Geniuz
+          </a>
+        </p>
       </Container>
     </footer>
   );

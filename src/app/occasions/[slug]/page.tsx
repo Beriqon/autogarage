@@ -15,6 +15,7 @@ import {
 } from "@/lib/structured-data";
 import { buildVehicleWhatsAppMessage } from "@/lib/whatsapp";
 import { formatMileage, formatPrice, vehicleTitle } from "@/lib/format";
+import { leaseFromPrice } from "@/lib/lease";
 import {
   bodyLabel,
   fuelLabel,
@@ -29,9 +30,11 @@ import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { PhoneLink } from "@/components/shared/phone-link";
 import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 import { VehicleGallery } from "@/components/vehicles/vehicle-gallery";
+import { VehicleOptions } from "@/components/vehicles/vehicle-options";
 import { VehicleSpecs } from "@/components/vehicles/vehicle-specs";
 import { VehicleGrid } from "@/components/vehicles/vehicle-grid";
 import { StickyVehicleCta } from "@/components/vehicles/sticky-vehicle-cta";
+import { LeaseCalculator } from "@/components/vehicles/lease-calculator";
 import { Reveal } from "@/components/shared/reveal";
 
 const labelCopy = {
@@ -48,6 +51,132 @@ const statusCopy = {
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
+
+function PurchaseCard({
+  vehicle,
+  title,
+  leaseFrom,
+  isSold,
+  appointmentHref,
+  whatsappMessage,
+}: {
+  vehicle: NonNullable<ReturnType<typeof getVehicleBySlug>>;
+  title: string;
+  leaseFrom: number;
+  isSold: boolean;
+  appointmentHref: string;
+  whatsappMessage: string;
+}) {
+  return (
+    <div className="border border-line bg-surface p-5 md:p-6">
+      <div className="flex flex-wrap gap-2">
+        {vehicle.labels.map((label) => (
+          <Badge key={label} variant="accent">
+            {labelCopy[label]}
+          </Badge>
+        ))}
+        <Badge
+          variant={
+            vehicle.status === "available"
+              ? "success"
+              : vehicle.status === "reserved"
+                ? "muted"
+                : "outline"
+          }
+        >
+          {statusCopy[vehicle.status]}
+        </Badge>
+      </div>
+
+      <h1 className="mt-4 font-display text-[clamp(1.5rem,1.2vw+1rem,2.15rem)] leading-tight text-ink">
+        {title}
+      </h1>
+
+      <p className="mt-3 font-display text-2xl font-semibold text-ink md:text-3xl">
+        {formatPrice(vehicle.price)}
+      </p>
+      {leaseFrom > 0 ? (
+        <p className="mt-1 text-sm text-muted">
+          Vanaf{" "}
+          <a
+            href="#lease"
+            className="font-medium text-ink underline-offset-4 hover:underline"
+          >
+            {formatPrice(leaseFrom)} p/m leasen
+          </a>
+        </p>
+      ) : null}
+
+      <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-line pt-5">
+        {(
+          [
+            ["Bouwjaar", String(vehicle.year)],
+            ["Kilometerstand", formatMileage(vehicle.mileage)],
+            ["Brandstof", fuelLabel(vehicle.fuel)],
+            ["Transmissie", transmissionLabel(vehicle.transmission)],
+            ["Vermogen", `${vehicle.power} pk`],
+            ["Carrosserie", bodyLabel(vehicle.bodyType)],
+            ["Kleur", vehicle.color],
+            [
+              "Deuren",
+              vehicle.specifications.doors != null
+                ? String(vehicle.specifications.doors)
+                : "",
+            ],
+            ["Kenteken", vehicle.specifications.licensePlate ?? ""],
+            ["APK tot", vehicle.specifications.apkUntil ?? ""],
+          ] as const
+        )
+          .filter((entry) => entry[1])
+          .map(([label, value]) => (
+            <div key={label}>
+              <dt className="text-xs text-muted">{label}</dt>
+              <dd className="text-sm font-semibold text-ink">{value}</dd>
+            </div>
+          ))}
+      </dl>
+
+      {!isSold ? (
+        <div className="mt-5 hidden flex-col gap-2 md:flex">
+          <Link
+            href={appointmentHref}
+            className={cn(buttonVariants({ variant: "primary", size: "lg" }))}
+          >
+            <Calendar className="size-4" aria-hidden />
+            Proefrit aanvragen
+          </Link>
+          <div className="grid grid-cols-2 gap-2">
+            <PhoneLink
+              asButton
+              variant="secondary"
+              size="lg"
+              label="Bellen"
+              className="w-full"
+            />
+            <WhatsAppButton
+              message={whatsappMessage}
+              label="WhatsApp"
+              variant="secondary"
+              size="lg"
+              className="w-full"
+            />
+          </div>
+        </div>
+      ) : (
+        <p className="mt-5 border border-line bg-paper px-4 py-3 text-sm text-muted">
+          Deze occasion is verkocht. Bekijk onze{" "}
+          <Link
+            href="/occasions"
+            className="font-semibold text-accent underline-offset-4 hover:underline"
+          >
+            actuele voorraad
+          </Link>
+          .
+        </p>
+      )}
+    </div>
+  );
+}
 
 export function generateStaticParams() {
   return getAllVehicleSlugs().map((slug) => ({ slug }));
@@ -92,6 +221,7 @@ export default async function VehicleDetailPage({ params }: PageProps) {
   const whatsappMessage = buildVehicleWhatsAppMessage(garage, vehicle);
   const appointmentHref = `/afspraak?occasion=${encodeURIComponent(vehicle.slug)}`;
   const isSold = vehicle.status === "sold";
+  const leaseFrom = isSold ? 0 : leaseFromPrice(vehicle.price);
 
   const breadcrumbs = [
     { name: "Home", path: "/" },
@@ -122,127 +252,41 @@ export default async function VehicleDetailPage({ params }: PageProps) {
       >
         <Breadcrumbs items={breadcrumbs} className="mb-8" />
 
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,24rem)] lg:gap-10">
           <VehicleGallery images={vehicle.images} alt={title} />
-
-          <div className="flex flex-col">
-            <div className="flex flex-wrap gap-2">
-              {vehicle.labels.map((label) => (
-                <Badge key={label} variant="accent">
-                  {labelCopy[label]}
-                </Badge>
-              ))}
-              <Badge
-                variant={
-                  vehicle.status === "available"
-                    ? "success"
-                    : vehicle.status === "reserved"
-                      ? "muted"
-                      : "outline"
-                }
-              >
-                {statusCopy[vehicle.status]}
-              </Badge>
-            </div>
-
-            <h1 className="mt-4 font-display text-[clamp(1.75rem,2vw+1rem,2.75rem)] leading-tight text-ink">
-              {title}
-            </h1>
-
-            <p className="mt-4 font-display text-2xl font-semibold text-ink md:text-3xl">
-              {formatPrice(vehicle.price)}
-            </p>
-
-            <p className="mt-4 text-sm text-muted md:text-base">
-              <span>{vehicle.year}</span>
-              <span className="mx-2 text-line" aria-hidden>
-                |
-              </span>
-              <span>{formatMileage(vehicle.mileage)}</span>
-              <span className="mx-2 text-line" aria-hidden>
-                |
-              </span>
-              <span>{fuelLabel(vehicle.fuel)}</span>
-              <span className="mx-2 text-line" aria-hidden>
-                |
-              </span>
-              <span>{transmissionLabel(vehicle.transmission)}</span>
-              <span className="mx-2 text-line" aria-hidden>
-                |
-              </span>
-              <span>{vehicle.power} pk</span>
-              <span className="mx-2 text-line" aria-hidden>
-                |
-              </span>
-              <span>{bodyLabel(vehicle.bodyType)}</span>
-            </p>
-
-            {!isSold ? (
-              <div className="mt-8 hidden flex-col gap-3 md:flex xl:flex-row">
-                <PhoneLink
-                  asButton
-                  variant="secondary"
-                  size="lg"
-                  label="Bellen"
-                  className="xl:flex-1"
-                />
-                <WhatsAppButton
-                  message={whatsappMessage}
-                  label="WhatsApp"
-                  variant="secondary"
-                  size="lg"
-                  className="xl:flex-1"
-                />
-                <Link
-                  href={appointmentHref}
-                  className={cn(
-                    buttonVariants({ variant: "primary", size: "lg" }),
-                    "xl:flex-1",
-                  )}
-                >
-                  <Calendar className="size-4" aria-hidden />
-                  Proefrit aanvragen
-                </Link>
-              </div>
-            ) : (
-              <p className="mt-8 border border-line bg-surface px-4 py-3 text-sm text-muted">
-                Deze occasion is verkocht. Bekijk onze{" "}
-                <Link
-                  href="/occasions"
-                  className="font-semibold text-accent underline-offset-4 hover:underline"
-                >
-                  actuele voorraad
-                </Link>
-                .
-              </p>
-            )}
-
-            <div className="mt-10 border-t border-line pt-8">
-              <h2 className="font-display text-lg text-ink">Omschrijving</h2>
-              <p className="mt-3 text-base leading-relaxed text-muted">
-                {vehicle.description}
-              </p>
-            </div>
-
-            {vehicle.options.length > 0 ? (
-              <div className="mt-8">
-                <h2 className="font-display text-lg text-ink">Opties</h2>
-                <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-                  {vehicle.options.map((option) => (
-                    <li
-                      key={option}
-                      className="flex gap-2 text-sm text-muted before:mt-[0.55em] before:size-1 before:shrink-0 before:bg-accent before:content-['']"
-                    >
-                      {option}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
+          <div className="lg:sticky lg:top-24">
+            <PurchaseCard
+              vehicle={vehicle}
+              title={title}
+              leaseFrom={leaseFrom}
+              isSold={isSold}
+              appointmentHref={appointmentHref}
+              whatsappMessage={whatsappMessage}
+            />
           </div>
         </div>
 
-        <VehicleSpecs vehicle={vehicle} className="mt-16 md:mt-20" />
+        <div className="mt-10 grid items-start gap-8 lg:mt-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,26rem)] lg:gap-10">
+          <div>
+            <h2 className="font-display text-xl text-ink md:text-2xl">Omschrijving</h2>
+            <p className="mt-3 text-base leading-relaxed text-muted">
+              {vehicle.description}
+            </p>
+          </div>
+
+          {!isSold && vehicle.price > 0 ? (
+            <div className="max-h-[min(36rem,70dvh)] overflow-y-auto overscroll-y-contain lg:sticky lg:top-24 lg:row-span-3 lg:max-h-[calc(100dvh-7rem)] lg:self-start">
+              <LeaseCalculator
+                purchasePrice={vehicle.price}
+                vehicleSlug={vehicle.slug}
+                vehicleTitle={title}
+              />
+            </div>
+          ) : null}
+
+          <VehicleOptions vehicle={vehicle} className="lg:col-start-1" />
+          <VehicleSpecs vehicle={vehicle} className="lg:col-start-1" />
+        </div>
       </Section>
 
       {related.length > 0 ? (

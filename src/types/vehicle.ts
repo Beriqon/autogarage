@@ -16,6 +16,21 @@ export type VehicleStatus = "available" | "reserved" | "sold";
 
 export type VehicleLabel = "nieuw-binnen" | "btw-auto";
 
+export type SpecRow = {
+  label: string;
+  value: string;
+};
+
+export type SpecSection = {
+  title: string;
+  rows: SpecRow[];
+};
+
+export type VehicleOptionGroup = {
+  title: string;
+  items: string[];
+};
+
 export type VehicleSpecifications = {
   doors?: number;
   seats?: number;
@@ -26,6 +41,18 @@ export type VehicleSpecifications = {
   consumption?: string;
   acceleration?: string;
   topSpeed?: string;
+  licensePlate?: string;
+  vatOrMargin?: string;
+  registrationDate?: string;
+  registrationDateIntl?: string;
+  apkUntil?: string;
+  cylinders?: number;
+  powerKw?: number;
+  torque?: string;
+  maxRpm?: string;
+  roadTax?: string;
+  keys?: number;
+  remotes?: number;
 };
 
 export type Vehicle = {
@@ -48,7 +75,9 @@ export type Vehicle = {
   labels: VehicleLabel[];
   description: string;
   specifications: VehicleSpecifications;
+  specSections?: SpecSection[];
   options: string[];
+  optionGroups?: VehicleOptionGroup[];
   createdAt: string;
 };
 

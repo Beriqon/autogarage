@@ -17,6 +17,12 @@ export function getServicesByCategory(category: ServiceCategory): Service[] {
   return services.filter((service) => service.category === category);
 }
 
+export function getServicesBySlugs(slugs: string[]): Service[] {
+  return slugs
+    .map((slug) => getServiceBySlug(slug))
+    .filter((service): service is Service => Boolean(service));
+}
+
 export function getFeaturedServices(
   limit = 3,
   category?: ServiceCategory,

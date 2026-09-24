@@ -13,7 +13,7 @@ export function ServicesShowcase({ services }: ServicesShowcaseProps) {
   if (services.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#1a1410] text-white">
+    <section className="relative overflow-hidden bg-[#12151a] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
@@ -32,20 +32,20 @@ export function ServicesShowcase({ services }: ServicesShowcaseProps) {
               Alles onder één dak
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-white/75 md:text-right md:text-base">
-              Van APK tot diagnose — heldere uitleg, eerlijke prijsafspraken
-              en vakkundig uitgevoerd werk in onze werkplaats.
+              Van kleine beurt tot nieuwe banden. Een wielenwissel kost €40,
+              een bandenwissel €70 — inclusief monteren en balanceren.
             </p>
           </div>
         </Reveal>
       </Container>
 
-      <ul className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="relative z-10 grid grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <li key={service.id}>
             <Reveal delay={0.05 * index} className="h-full">
               <Link
                 href={`/diensten/${service.slug}`}
-                className="group relative flex h-full min-h-[400px] flex-col overflow-hidden outline-offset-[-4px] md:min-h-[460px]"
+                className="group relative flex h-full min-h-[320px] flex-col overflow-hidden outline-offset-[-4px] sm:min-h-[380px] md:min-h-[460px]"
               >
                 <div className="absolute inset-0">
                   <Image
@@ -59,30 +59,46 @@ export function ServicesShowcase({ services }: ServicesShowcaseProps) {
                 </div>
 
                 <div
-                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.15)_0%,rgba(26,20,16,0.4)_45%,rgba(26,20,16,0.9)_100%)] transition-opacity duration-500 group-hover:opacity-95"
+                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.15)_0%,rgba(18,21,26,0.4)_45%,rgba(18,21,26,0.9)_100%)] transition-opacity duration-500 group-hover:opacity-95"
                   aria-hidden
                 />
 
-                <div className="relative z-10 mt-auto flex flex-col px-6 pb-8 pt-24 md:px-8 md:pb-10">
-                  <h3 className="font-display text-[clamp(1.75rem,1.5vw+0.75rem,2.25rem)] leading-tight text-white">
+                <div className="relative z-10 mt-auto flex min-w-0 flex-col px-4 pb-5 pt-16 sm:px-6 sm:pb-8 sm:pt-24 md:px-8 md:pb-10">
+                  <h3 className="font-display text-lg leading-tight break-words text-white sm:text-2xl md:text-[clamp(1.75rem,1.5vw+0.75rem,2.25rem)]">
                     {service.name}
                   </h3>
-                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/75">
+                  <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-white/75 sm:mt-3 sm:text-sm">
                     {service.shortDescription}
                   </p>
 
-                  <div className="mt-6 flex items-end justify-between gap-3">
-                    {service.priceFrom != null ? (
+                  <div className="mt-4 flex flex-col items-start gap-3 sm:mt-6 sm:flex-row sm:items-end sm:justify-between">
+                    {service.prices && service.prices.length > 0 ? (
+                      <ul className="space-y-1">
+                        {service.prices.map((price) => (
+                          <li
+                            key={price.label}
+                            className="font-display text-lg tracking-tight text-white md:text-xl"
+                          >
+                            <span className="mr-1.5 text-xs font-sans text-white/55">
+                              {price.label}
+                            </span>
+                            {formatPrice(price.amount)}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : service.priceFrom != null ? (
                       <p className="font-display text-xl tracking-tight text-white md:text-2xl">
                         <span className="mr-1.5 text-sm text-white/55">
                           {service.priceLabel ?? "vanaf"}
                         </span>
                         {formatPrice(service.priceFrom)}
                       </p>
+                    ) : service.priceLabel ? (
+                      <p className="text-sm text-white/70">{service.priceLabel}</p>
                     ) : (
                       <span />
                     )}
-                    <span className="inline-flex rounded-full bg-white px-5 py-2 text-sm font-medium text-ink transition-transform duration-300 group-hover:scale-[1.03]">
+                    <span className="inline-flex shrink-0 rounded-full bg-white px-3 py-1.5 text-xs font-medium text-ink transition-transform duration-300 group-hover:scale-[1.03] sm:px-5 sm:py-2 sm:text-sm">
                       Lees meer
                     </span>
                   </div>

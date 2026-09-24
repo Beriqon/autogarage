@@ -66,8 +66,8 @@ export default function WerkplaatsPage() {
       />
 
       <section className="bg-paper">
-        <div className="grid lg:grid-cols-2">
-          <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[640px]">
+        <div className="grid md:grid-cols-2">
+          <Reveal className="relative hidden min-h-[360px] overflow-hidden md:block lg:min-h-[640px]">
             <Image
               src="/images/garage/workshop-bay.jpg"
               alt={`Werkplaatsbrug bij ${garage.name}`}
@@ -76,7 +76,7 @@ export default function WerkplaatsPage() {
               className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
             />
             <div
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.1)_0%,rgba(26,20,16,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(26,20,16,0)_60%,rgba(245,243,241,0.15)_100%)]"
+              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.1)_0%,rgba(18,21,26,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(18,21,26,0)_60%,rgba(242,243,245,0.15)_100%)]"
               aria-hidden
             />
           </Reveal>
@@ -90,8 +90,7 @@ export default function WerkplaatsPage() {
                 <p className="mt-6 text-sm leading-relaxed text-muted md:text-base">
                   Periodiek onderhoud is de slimste keuze voor veilig rijden.
                   Onze monteurs blijven via cursussen bij met de laatste
-                  ontwikkelingen. Of het nu om Opel of een ander merk gaat: u
-                  bent welkom.
+                  ontwikkelingen. Voor alle gangbare merken bent u welkom.
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
                   Blijkt tijdens de controle een reparatie nodig? Dan voeren we
@@ -128,7 +127,7 @@ export default function WerkplaatsPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#1a1410] text-white">
+      <section className="relative overflow-hidden bg-[#12151a] text-white">
         <Container className="relative z-10 py-16 md:py-20 lg:py-24">
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16">
@@ -197,7 +196,7 @@ export default function WerkplaatsPage() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                     <div
-                      className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.05)_0%,rgba(26,20,16,0.75)_100%)]"
+                      className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.05)_0%,rgba(18,21,26,0.75)_100%)]"
                       aria-hidden
                     />
                     <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6">

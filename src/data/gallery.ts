@@ -26,7 +26,7 @@ export const gallery: GalleryImage[] = [
   {
     id: "g-004",
     src: "/images/garage/about-welcome.jpg",
-    alt: "Showroom en ontvangst bij Ap van Beek",
+    alt: "Showroom en ontvangst bij Car Service Nederland",
     category: "showroom",
     featured: true,
   },

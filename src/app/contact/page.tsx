@@ -13,7 +13,7 @@ import { CtaBand } from "@/components/home/cta-band";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Contact",
-  description: `Neem contact op met ${garage.name} in ${garage.address.city}. Bel of stuur een bericht — Autoservice (Veenweg 44) en Garage (Veenweg 38F).`,
+  description: `Neem contact op met ${garage.name} in ${garage.address.city}. Bel, app of stuur een bericht — ${garage.address.street}.`,
   path: "/contact",
   image: "/images/garage/showroom-cars.jpg",
 });
@@ -40,7 +40,7 @@ export default function ContactPage() {
 
       <PageHero
         title="Contact"
-        description={`Stel uw vraag over occasions, onderhoud of een bezoek. U bereikt ${garage.shortName} telefonisch of met het formulier — welkom aan de Veenweg in ${address.city}.`}
+        description={`Stel uw vraag over occasions, onderhoud of een bezoek. U bereikt ${garage.shortName} telefonisch of met het formulier — welkom aan de ${address.street} in ${address.city}.`}
         imageSrc="/images/garage/showroom-cars.jpg"
         imageAlt={`Showroom van ${garage.name} in ${address.city}`}
       />
@@ -69,23 +69,25 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-display text-2xl text-ink">Bezoekadres</h3>
                   <address className="mt-4 not-italic">
-                    <p className="font-display text-lg text-ink">
-                      Autoservice Ap van Beek
-                    </p>
+                    <p className="font-display text-lg text-ink">{garage.name}</p>
                     <p className="mt-2 text-sm leading-relaxed text-muted md:text-base">
-                      Veenweg 44
+                      {address.street}
                       <br />
-                      7336 AG Apeldoorn
+                      {address.postalCode} {address.city}
                     </p>
-                    <p className="mt-6 font-display text-lg text-ink">
-                      Garage Ap van Beek
+                    <p className="mt-6 text-sm leading-relaxed text-muted md:text-base">
+                      Inkoop & verkoop
+                      <br />
+                      <a href={`tel:${garage.whatsapp}`} className="text-ink">
+                        06 24 46 08 53
+                      </a>
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-muted md:text-base">
-                      Veenweg 38F
+                    <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
+                      Klantenservice
                       <br />
-                      7336 AG Apeldoorn
-                      <br />
-                      <span className="text-muted">Tel. 055 303 42 72</span>
+                      <a href={`tel:${garage.phone}`} className="text-ink">
+                        {garage.phoneDisplay}
+                      </a>
                     </p>
                   </address>
 
@@ -139,7 +141,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-[#1a1410] text-white">
+      <section className="relative overflow-hidden bg-[#12151a] text-white">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
@@ -158,7 +160,7 @@ export default function ContactPage() {
                 Vind ons in {address.city}
               </h2>
               <p className="max-w-md text-sm leading-relaxed text-white/75 md:text-right md:text-base">
-                Twee vestigingen aan de Veenweg. Parkeren voor de deur.
+                {address.street} in {address.city}. Parkeren voor de deur.
               </p>
             </div>
           </Reveal>

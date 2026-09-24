@@ -1,81 +1,113 @@
 import type { GarageConfig } from "@/types/garage";
 
+const googleReviews = {
+  score: 4.8,
+  count: 187,
+  url: "https://www.google.com/search?sca_esv=76c3b7943658a61d&rlz=1C1GCEA_enNL990NL990&sxsrf=APpeQnsIYEcYRi5bxDfah_RR7QP7rOPmkQ:1790198153208&q=car+service+nederland+google+reviews&si=APenkKm7iecQ4G6P-TsbSMFKIQtv3EFIqRAFw-i8uEbk55Z-_4WGWD-M7xUeAZ1EA_4HM16cl-OonqXzU0TKEzrM3HQPfmz0H8AEQR9o9ZsI828k8QuzffI%3D&uds=AJ5uw195omnGJ76DOhPThDoE1qc-brDyWuXXCw4wCpSQJvXvG31KtGnPz0Q6hajqbq82qMG50-lJ0acosp8Sz4m1OUgiDo_QgmhQJiiCdfxX95aT5-RSTNsmQ7GUJ9F4P-1HjFPCeRDZ&sa=X&ved=2ahUKEwiyjP_nz4WXAxXyhv0HHelYDbwQ3PALegQILBAF&biw=1536&bih=730&dpr=1.25",
+};
+
+const trustpilotReviews = {
+  score: 4.7,
+  count: 41,
+  url: "https://nl.trustpilot.com/review/csnauto.nl",
+};
+
+const reviewCount = googleReviews.count + trustpilotReviews.count;
+const reviewScore =
+  Math.round(
+    ((googleReviews.score * googleReviews.count +
+      trustpilotReviews.score * trustpilotReviews.count) /
+      reviewCount) *
+      10,
+  ) / 10;
+
+const reviewScoreLabel = reviewScore.toLocaleString("nl-NL", {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
+
 export const garage: GarageConfig = {
-  name: "Garage Ap van Beek",
-  shortName: "Ap van Beek",
-  legalName: "Garage Ap van Beek",
-  tagline: "Vakmanschap met ouderwetse service",
+  name: "Car Service Nederland",
+  shortName: "Car Service Nederland",
+  legalName: "Car Service Nederland",
+  tagline: "Veilig en soepel op weg",
   description:
-    "Garage Ap van Beek is sinds 1983 een begrip in Apeldoorn voor aankoop en onderhoud van alle merken, met specialisme Opel. Moderne werkplaats, ruim occasions-aanbod en persoonlijke service.",
-  logo: "/images/brand/logo.png",
-  logoDark: "/images/brand/logo-dark.png",
+    "Car Service Nederland is een autobedrijf in Apeldoorn, gespecialiseerd in autoreparaties, onderhoud, inkoop, verkoop, import en export.",
+  logo: "/images/brand/logo-mark.png",
+  logoDark: "/images/brand/logo-mark.png",
   colors: {
-    ink: "#231913",
-    paper: "#F5F3F1",
+    ink: "#12151A",
+    paper: "#F2F3F5",
     surface: "#FFFFFF",
-    muted: "#6B6560",
-    line: "#D2CDCA",
-    accent: "#2F241E",
-    accentHover: "#231913",
-    success: "#2F6B4F",
+    muted: "#5A616A",
+    line: "#D4D7DC",
+    accent: "#16325A",
+    accentHover: "#102440",
+    success: "#2A6B52",
   },
-  phone: "+31553551175",
-  phoneDisplay: "055 355 11 75",
-  whatsapp: "+31553551175",
-  email: "info@apvanbeek.nl",
-  website: "https://apvanbeek.nl",
+  phone: "+31611264594",
+  phoneDisplay: "06 11 26 45 94",
+  whatsapp: "+31624460853",
+  email: "info@csnauto.nl",
+  website: "https://www.csnauto.nl",
   address: {
-    street: "Veenweg 44",
-    postalCode: "7336 AG",
+    street: "Sleutelbloemstraat 12",
+    postalCode: "7322 AG",
     city: "Apeldoorn",
     region: "Gelderland",
     country: "Nederland",
     countryCode: "NL",
   },
   coordinates: {
-    lat: 52.1786,
-    lng: 5.9789,
+    lat: 52.2241489,
+    lng: 5.9760954,
   },
   openingHours: [
-    { day: "monday", label: "Maandag", open: "08:30", close: "18:00" },
-    { day: "tuesday", label: "Dinsdag", open: "08:30", close: "18:00" },
-    { day: "wednesday", label: "Woensdag", open: "08:30", close: "18:00" },
-    { day: "thursday", label: "Donderdag", open: "08:30", close: "18:00" },
-    { day: "friday", label: "Vrijdag", open: "08:30", close: "18:00" },
-    { day: "saturday", label: "Zaterdag", open: "09:00", close: "16:00" },
-    { day: "sunday", label: "Zondag", open: null, close: null, closed: true },
+    { day: "monday", label: "Maandag", open: "08:00", close: "18:30" },
+    { day: "tuesday", label: "Dinsdag", open: "08:00", close: "18:30" },
+    { day: "wednesday", label: "Woensdag", open: "08:00", close: "18:30" },
+    { day: "thursday", label: "Donderdag", open: "08:00", close: "18:30" },
+    { day: "friday", label: "Vrijdag", open: "08:00", close: "18:30" },
+    { day: "saturday", label: "Zaterdag", open: "08:00", close: "18:30" },
+    { day: "sunday", label: "Zondag", open: "12:00", close: "17:30" },
   ],
-  socials: {},
-  reviewScore: 4.9,
-  reviewCount: 41,
+  socials: {
+    facebook: "https://www.facebook.com/carservicenederland",
+    instagram: "https://www.instagram.com/carservicenederland/",
+    x: "https://x.com/CarNederland",
+    linkedin: "https://www.linkedin.com/company/csnautos",
+    tiktok: "https://www.tiktok.com/@csnauto",
+  },
+  reviewScore,
+  reviewCount,
+  googleReviews,
+  trustpilotReviews,
   stats: [
-    { label: "jaar ervaring", value: "40+" },
-    { label: "occasions op voorraad", value: "12+" },
-    { label: "medewerkers", value: "7" },
-    { label: "Google-score", value: "4,9" },
+    { label: "jaar in Apeldoorn", value: "10+" },
+    { label: "occasions op voorraad", value: "90+" },
+    { label: "dagen per week open", value: "7" },
+    { label: "klantscore", value: reviewScoreLabel },
   ],
   uspItems: [
     {
-      title: "Sinds 1983",
+      title: "Reparatie en onderhoud",
       description:
-        "Al meer dan veertig jaar een begrip in Apeldoorn en verre omstreken — voor aankoop én onderhoud van alle merken.",
+        "Ervaren monteurs houden uw auto veilig en soepel op de weg, met moderne apparatuur en een duidelijke prijsafspraak.",
     },
     {
-      title: "Opel-specialist",
+      title: "Inkoop en verkoop",
       description:
-        "Specialisme in Opel, nieuw en gebruikt. Ook voor andere merken bent u van harte welkom in onze werkplaats.",
+        "Occasions uit eigen voorraad, te koop of te leasen. Plus inkoop, import en export.",
     },
     {
-      title: "Persoonlijke service",
+      title: "Scherpe prijzen",
       description:
-        "Geen prijsvechter, wel het beste voor een scherpe prijs. De klant staat centraal — Ap van Beek staat u graag persoonlijk te woord.",
+        "Hoogwaardig werk tegen concurrerende tarieven — voor onderhoud, APK, banden, airco en accu.",
     },
     {
-      title: "Moderne werkplaats",
+      title: "Ook op zondag open",
       description:
-        "APK, onderhoud, aircoservice, banden en storingsdiagnose met moderne gereedschappen en diagnoseapparatuur.",
+        "Maandag tot en met zaterdag van 08:00 tot 18:30 uur, zondag van 12:00 tot 17:30 uur.",
     },
   ],
-  kvk: "54620627",
-  btw: "NL851375169B01",
 };

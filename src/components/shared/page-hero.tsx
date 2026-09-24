@@ -23,7 +23,7 @@ export function PageHero({
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate flex min-h-[70svh] items-end overflow-hidden bg-[#1a1410] text-paper md:min-h-[75svh]">
+    <section className="relative isolate flex min-h-[52svh] items-end overflow-hidden bg-[#12151a] text-paper md:min-h-[68svh] lg:min-h-[75svh]">
       <motion.div
         className="absolute inset-0"
         initial={reduceMotion ? false : { scale: 1.06 }}
@@ -41,7 +41,7 @@ export function PageHero({
       </motion.div>
 
       <div
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.45)_0%,rgba(26,20,16,0.28)_35%,rgba(26,20,16,0.82)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.45)_0%,rgba(18,21,26,0.28)_35%,rgba(18,21,26,0.82)_100%)]"
         aria-hidden
       />
 

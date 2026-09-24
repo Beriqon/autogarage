@@ -47,8 +47,9 @@ export async function generateMetadata({
     });
   }
 
-  const pricePart =
-    service.priceFrom != null
+  const pricePart = service.prices?.length
+    ? ` ${service.prices.map((price) => `${price.label} ${formatPrice(price.amount)}`).join(", ")}.`
+    : service.priceFrom != null
       ? ` ${service.priceLabel ?? "Vanaf"} ${formatPrice(service.priceFrom)}.`
       : "";
 

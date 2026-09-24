@@ -18,7 +18,7 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
   if (services.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#1a1410] text-white">
+    <section className="relative overflow-hidden bg-[#12151a] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
@@ -37,20 +37,20 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
               Onze diensten
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-white/75 md:text-right md:text-base">
-              APK, onderhoud, diagnose en banden in onze moderne werkplaats —
-              met heldere uitleg en eerlijke prijsafspraken.
+              APK, onderhoud, diagnose en banden in onze werkplaats. Plus 24/7
+              takelservice: altijd bereikbaar, altijd hulp.
             </p>
           </div>
         </Reveal>
       </Container>
 
       {/* Mobile: stacked cards */}
-      <ul className="relative z-10 md:hidden">
+      <ul className="relative z-10 grid grid-cols-2 gap-3 px-4 pb-4 md:hidden">
         {services.map((service) => (
           <li key={service.id} className="relative">
             <Link
               href={`/diensten/${service.slug}`}
-              className="relative flex min-h-[320px] flex-col items-center justify-center overflow-hidden px-8 py-16 text-center"
+              className="relative flex min-h-[220px] flex-col items-center justify-end overflow-hidden px-4 py-6 text-center sm:min-h-[280px]"
             >
               <Image
                 src={service.image}
@@ -60,17 +60,17 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
                 className="object-cover"
               />
               <div
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.25)_0%,rgba(26,20,16,0.6)_50%,rgba(26,20,16,0.88)_100%)]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.25)_0%,rgba(18,21,26,0.6)_50%,rgba(18,21,26,0.88)_100%)]"
                 aria-hidden
               />
               <div className="relative z-10 flex flex-col items-center">
-                <h3 className="font-display text-3xl text-white">
+                <h3 className="font-display text-xl text-white sm:text-2xl">
                   {service.name}
                 </h3>
-                <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/80">
+                <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-white/80 sm:text-sm">
                   {service.shortDescription}
                 </p>
-                <span className="mt-6 inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-medium text-ink">
+                <span className="mt-4 inline-flex rounded-full bg-white px-4 py-2 text-xs font-medium text-ink sm:text-sm">
                   Lees meer
                 </span>
               </div>
@@ -118,8 +118,8 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
                   className={cn(
                     "absolute inset-0 transition-colors duration-500",
                     isActive
-                      ? "bg-[linear-gradient(180deg,rgba(26,20,16,0.45)_0%,rgba(26,20,16,0.72)_100%)]"
-                      : "bg-[linear-gradient(180deg,rgba(26,20,16,0.15)_0%,rgba(26,20,16,0.55)_100%)]",
+                      ? "bg-[linear-gradient(180deg,rgba(18,21,26,0.45)_0%,rgba(18,21,26,0.72)_100%)]"
+                      : "bg-[linear-gradient(180deg,rgba(18,21,26,0.15)_0%,rgba(18,21,26,0.55)_100%)]",
                   )}
                   aria-hidden
                 />

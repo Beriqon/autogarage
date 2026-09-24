@@ -32,13 +32,21 @@ export type Coordinates = {
 export type SocialLinks = {
   facebook?: string;
   instagram?: string;
+  x?: string;
   linkedin?: string;
+  tiktok?: string;
   youtube?: string;
 };
 
 export type GarageStat = {
   label: string;
   value: string;
+};
+
+export type ExternalReviews = {
+  score: number;
+  count: number;
+  url: string;
 };
 
 export type UspItem = {
@@ -78,6 +86,8 @@ export type GarageConfig = {
   socials: SocialLinks;
   reviewScore: number;
   reviewCount: number;
+  googleReviews: ExternalReviews;
+  trustpilotReviews: ExternalReviews;
   stats: GarageStat[];
   uspItems: UspItem[];
   kvk?: string;

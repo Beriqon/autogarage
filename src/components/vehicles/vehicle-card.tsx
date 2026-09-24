@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Vehicle } from "@/types/vehicle";
 import { formatMileage, formatPrice, vehicleTitle } from "@/lib/format";
+import { leaseFromPrice } from "@/lib/lease";
 import { cn } from "@/lib/cn";
 
 const labelCopy: Record<Vehicle["labels"][number], string> = {
@@ -34,14 +35,16 @@ export function VehicleCard({
   const image = vehicle.images[0];
   const statusLabel = statusCopy[vehicle.status];
   const doors = vehicle.specifications.doors;
+  const leaseFrom =
+    vehicle.status === "sold" ? 0 : leaseFromPrice(vehicle.price);
 
   return (
-    <article className={cn("group h-full", className)}>
+    <article className={cn("group h-full min-w-0", className)}>
       <Link
         href={`/occasions/${vehicle.slug}`}
-        className="flex h-full flex-col outline-offset-4"
+        className="flex h-full min-w-0 flex-col outline-offset-4"
       >
-        <div className="relative aspect-[16/10] overflow-hidden bg-[#ebe8e4]">
+        <div className="relative aspect-[16/10] overflow-hidden bg-[#e4e6ea]">
           {image ? (
             <Image
               src={image}
@@ -73,11 +76,11 @@ export function VehicleCard({
         </div>
 
         <div className="flex flex-1 flex-col pt-4 md:pt-5">
-          <h3 className="font-display text-[clamp(1.2rem,0.9vw+0.85rem,1.55rem)] leading-snug text-ink">
+          <h3 className="font-display text-base leading-snug break-words text-ink sm:text-lg lg:text-[clamp(1.2rem,0.9vw+0.85rem,1.55rem)]">
             {title}
           </h3>
 
-          <p className="mt-2 text-sm leading-relaxed text-muted">
+          <p className="mt-2 text-xs leading-relaxed break-words text-muted sm:text-sm">
             {vehicle.year}
             <span className="mx-1.5 text-line" aria-hidden>
               ·
@@ -97,11 +100,18 @@ export function VehicleCard({
             ) : null}
           </p>
 
-          <div className="mt-4 flex items-end justify-between gap-3">
-            <p className="font-display text-xl tracking-tight text-ink md:text-2xl">
-              {formatPrice(vehicle.price)}
-            </p>
-            <span className="inline-flex rounded-full bg-ink px-4 py-2 text-sm font-medium text-white transition-transform duration-300 group-hover:scale-[1.03]">
+          <div className="mt-3 flex flex-col items-start gap-3 xl:mt-4 xl:flex-row xl:items-end xl:justify-between">
+            <div>
+              <p className="font-display text-lg tracking-tight text-ink sm:text-xl md:text-2xl">
+                {formatPrice(vehicle.price)}
+              </p>
+              {leaseFrom > 0 ? (
+                <p className="mt-1 text-xs text-muted sm:text-sm">
+                  Vanaf {formatPrice(leaseFrom)} p/m leasen
+                </p>
+              ) : null}
+            </div>
+            <span className="inline-flex rounded-full bg-ink px-3 py-1.5 text-xs font-medium text-white transition-transform duration-300 group-hover:scale-[1.03] sm:px-4 sm:py-2 sm:text-sm">
               Bekijk
             </span>
           </div>

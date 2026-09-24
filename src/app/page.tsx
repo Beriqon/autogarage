@@ -2,13 +2,19 @@ import type { Metadata } from "next";
 import { garage } from "@/config/garage";
 import { createPageMetadata } from "@/lib/seo";
 import { getFeaturedVehicles } from "@/lib/repositories/vehicles";
-import { getFeaturedServices } from "@/lib/repositories/services";
+import {
+  getFeaturedServices,
+  getServicesBySlugs,
+} from "@/lib/repositories/services";
 import {
   getFeaturedGallery,
   getFeaturedReviews,
 } from "@/lib/repositories/reviews";
+import { Container } from "@/components/ui/container";
 import { Hero } from "@/components/home/hero";
+import { SellYourCar } from "@/components/home/sell-your-car";
 import { FeaturedOccasions } from "@/components/home/featured-occasions";
+import { LeasePreview } from "@/components/home/lease-preview";
 import { ServicesPreview } from "@/components/home/services-preview";
 import { MobilityServices } from "@/components/home/mobility-services";
 import { StatsBand } from "@/components/home/stats-band";
@@ -21,13 +27,20 @@ export const metadata: Metadata = createPageMetadata({
   title: `Occasions & garage in ${garage.address.city}`,
   description: garage.description,
   path: "/",
-  image: "/images/garage/vestiging-hero.jpg",
+  image: "/images/garage/herofoto.jpg",
 });
 
 export default function Home() {
   const vehicles = getFeaturedVehicles(4);
   const workshopServices = getFeaturedServices(4, "workshop");
-  const mobilityServices = getFeaturedServices(3, "mobility");
+  const onderhoudServices = getServicesBySlugs([
+    "kleine-beurt",
+    "grote-beurt",
+    "merkbeurt",
+    "autobanden",
+    "airco-service",
+    "schadeherstel",
+  ]);
   const reviews = getFeaturedReviews(3);
   const gallery = getFeaturedGallery(6);
 
@@ -35,8 +48,19 @@ export default function Home() {
     <>
       <Hero />
       <FeaturedOccasions vehicles={vehicles} />
+      <section className="bg-paper" aria-label="Financieren en inkoop">
+        <Container className="grid gap-4 py-4 sm:grid-cols-2 sm:gap-5 sm:py-6 lg:py-8">
+          <LeasePreview />
+          <SellYourCar />
+        </Container>
+      </section>
       <ServicesPreview services={workshopServices} />
-      <MobilityServices services={mobilityServices} />
+      <MobilityServices
+        services={onderhoudServices}
+        eyebrow="Onderhoud en banden"
+        title="Kleine beurt, grote beurt en merkbeurt"
+        description="Onderhoud voor elk merk, ook elektrisch. Nieuwe autobanden monteren we in de werkplaats; airco controleren we jaarlijks."
+      />
       <StatsBand />
       <AboutPreview />
       <WorkshopGallery images={gallery} />

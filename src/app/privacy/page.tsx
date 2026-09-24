@@ -58,9 +58,10 @@ export default function PrivacyPage() {
           <section className="space-y-3">
             <h3 className="font-display text-ink">Welke gegevens</h3>
             <p>
-              Via contact- en afspraakformulieren kunnen wij naam, telefoonnummer,
-              e-mailadres en uw bericht verwerken om vragen te beantwoorden of een
-              afspraak te plannen.
+              Via contact-, afspraak-, lease- en inkoopformulieren kunnen wij naam,
+              telefoonnummer, e-mailadres, kenteken, kilometerstand, foto&apos;s of
+              bestanden van de auto en uw bericht verwerken om vragen te
+              beantwoorden, een afspraak te plannen of een bod op uw auto te doen.
             </p>
           </section>
 

@@ -21,7 +21,7 @@ import { CtaBand } from "@/components/home/cta-band";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Over ons",
-  description: `Leer ${garage.name} in ${garage.address.city} kennen: sinds 1983 actief, Opel-specialist met twee vestigingen, geselecteerde occasions en persoonlijke service.`,
+  description: `Leer ${garage.name} in ${garage.address.city} kennen: autoreparatie, onderhoud, occasions, inkoop, verkoop, import en export.`,
   path: "/over-ons",
   image: "/images/garage/over-ons.jpg",
 });
@@ -46,14 +46,14 @@ export default function OverOnsPage() {
 
       <PageHero
         title="Over ons"
-        description={`Sinds 1983 een begrip in ${garage.address.city}: Opel-specialist met moderne werkplaats, occasions en persoonlijke service.`}
+        description={`${garage.description} Occasions uit eigen voorraad en een werkplaats voor onderhoud en reparatie.`}
         imageSrc="/images/garage/over-ons.jpg"
         imageAlt={`Vestiging van ${garage.name}`}
       />
 
       <section className="bg-paper">
-        <div className="grid lg:grid-cols-2">
-          <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[680px]">
+        <div className="grid md:grid-cols-2">
+          <Reveal className="relative hidden min-h-[360px] overflow-hidden md:block lg:min-h-[680px]">
             <Image
               src="/images/garage/team.jpg"
               alt={`Team van ${garage.name}`}
@@ -62,7 +62,7 @@ export default function OverOnsPage() {
               className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
             />
             <div
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.1)_0%,rgba(26,20,16,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(26,20,16,0)_60%,rgba(245,243,241,0.15)_100%)]"
+              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.1)_0%,rgba(18,21,26,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(18,21,26,0)_60%,rgba(242,243,245,0.15)_100%)]"
               aria-hidden
             />
           </Reveal>
@@ -71,20 +71,17 @@ export default function OverOnsPage() {
             <Reveal>
               <div className="max-w-lg">
                 <h2 className="font-display text-[clamp(2rem,3vw+1rem,3rem)] leading-tight tracking-[-0.02em] text-ink">
-                  Sinds 1983 thuis in {garage.address.city}
+                  Autobedrijf in {garage.address.city}
                 </h2>
                 <p className="mt-6 text-sm leading-relaxed text-muted md:text-base">
-                  Ap van Beek nam in 1983 het bedrijf van voormalig Mazda-dealer
-                  van As over aan de Orderparkweg en startte zijn eigen
-                  garagebedrijf, gespecialiseerd in Opel. Sindsdien groeide het
-                  uit tot een full-service bedrijf met twee vestigingen aan de
-                  Veenweg.
+                  {garage.name} is gevestigd aan de {garage.address.street}. Wij
+                  zijn gespecialiseerd in hoogwaardige autoreparaties,
+                  onderhoud, inkoop, verkoop, import en export.
                 </p>
                 <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
-                  Met zeven medewerkers ontzorgen we uw mobiliteit: betrouwbare
-                  occasions, onderhoud en reparatie voor Opel én andere merken.
-                  Geen prijsvechter — wel het beste voor een scherpe prijs, met
-                  de klant centraal.
+                  Ons team van ervaren monteurs zorgt dat uw voertuig veilig en
+                  soepel blijft rijden. Met moderne apparatuur diagnosticeren en
+                  verhelpen we problemen, en we houden de prijzen scherp.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
                   <Link

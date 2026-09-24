@@ -6,356 +6,399 @@ export const services: Service[] = [
     slug: "apk-keuring",
     name: "APK-keuring",
     shortDescription:
-      "Snelle APK inclusief herkeuring wanneer nodig — zonder verrassingen.",
+      "RDW-erkende keuring op veiligheid en milieu, met een duidelijk rapport na afloop.",
     description:
-      "Laat uw auto keuren door onze RDW-erkende keurmeesters. Wij controleren grondig, leggen bevindingen helder uit en kunnen kleine gebreken vaak direct meenemen in de werkplaats.",
+      "Verloopt de APK van uw auto binnen twee maanden? Maak dan op tijd een afspraak. Onze gediplomeerde keurmeesters controleren de auto volgens de RDW-regels. Tijdens de Algemene Periodieke Keuring kijken we of de auto voldoet aan de Europese eisen voor veiligheid en milieu: banden, remmen, verlichting, schokdempers en meer. Gebreken komen zo op tijd aan het licht, nog vóór ze tot een grotere reparatie leiden. Na afloop ontvangt u een rapport: goedgekeurd, of met de punten die eerst verholpen moeten worden.",
     image: "/images/garage/apk.jpg",
     featured: true,
     category: "workshop",
-    priceFrom: 49.95,
-    priceLabel: "vanaf",
     highlights: [
-      "RDW-erkende keuring",
-      "Duidelijke rapportage",
-      "Vaak dezelfde dag klaar",
+      "RDW-erkende keurmeesters",
+      "Rapport na de keuring",
+      "Banden, remmen, verlichting en schokdempers",
       "Combinatie met onderhoud mogelijk",
     ],
     whenNeeded: [
-      "Uw APK-vervaldatum nadert",
-      "U wilt zekerheid vóór verkoop of aankoop",
-      "Na grotere reparaties of schadeherstel",
+      "Nieuwe benzineauto: eerste APK na 4 jaar",
+      "Nieuwe dieselauto: eerste APK na 3 jaar, daarna jaarlijks",
+      "Benzineauto van 4 tot 8 jaar: om het jaar, daarna elk jaar",
+      "Zes weken voor de vervaldatum stuurt het RDW een oproep",
     ],
     whyUs: [
       "Keurmeesters met jarenlange ervaring",
-      "Geen verkooppraatjes — alleen wat nodig is",
+      "Alleen repareren wat nodig is, na overleg",
       "Afspraak online of telefonisch",
     ],
     faq: [
       {
-        question: "Hoe lang duurt een APK?",
+        question: "Wat gebeurt er als mijn APK verloopt?",
         answer:
-          "Reken op ongeveer 45–60 minuten. Combineert u APK met onderhoud, dan plannen we voldoende tijd in.",
+          "U mag dan niet meer de weg op. U riskeert een boete en de auto is op dat moment niet verzekerd. Plan de keuring daarom vóór de vervaldatum.",
       },
       {
-        question: "Mag ik wachten tijdens de keuring?",
+        question: "Hoe vaak moet mijn auto gekeurd worden?",
         answer:
-          "Ja, u bent welkom in onze wachtruimte met koffie. We houden u op de hoogte van de voortgang.",
+          "Een nieuwe benzineauto gaat na vier jaar voor het eerst naar de APK, een diesel na drie jaar. Daarna is een diesel elk jaar aan de beurt. Een benzineauto om het jaar, en vanaf acht jaar eveneens elk jaar.",
       },
     ],
-    relatedSlugs: ["onderhoudsbeurt", "diagnose"],
-  },
-  {
-    id: "s-002",
-    slug: "onderhoudsbeurt",
-    name: "Onderhoudsbeurt",
-    shortDescription:
-      "Periodiek onderhoud volgens fabrieksvoorschrift, met originele of A-kwaliteit onderdelen.",
-    description:
-      "Van grote tot kleine beurt: olie, filters, remmen en slijtageonderdelen. We werken merkoverstijgend en volgen de onderhoudsintervallen van de fabrikant.",
-    image: "/images/garage/maintenance.jpg",
-    featured: true,
-    category: "workshop",
-    priceFrom: 149,
-    priceLabel: "vanaf",
-    highlights: [
-      "Grote & kleine beurt",
-      "Onderhoudsboekje digitaal bijgewerkt",
-      "Transparante prijsopgave vooraf",
-      "Vervangingsauto op aanvraag",
-    ],
-    whenNeeded: [
-      "Bij het bereiken van het onderhoudsinterval",
-      "Wanneer een storingslampje brandt",
-      "Vóór een lange vakantierit",
-    ],
-    whyUs: [
-      "Vakkundige diagnose vóór onnodige onderdelen",
-      "Scherp geprijsde onderhoudspakketten",
-      "Nazorg en garantie op uitgevoerd werk",
-    ],
-    faq: [
-      {
-        question: "Gebruiken jullie originele onderdelen?",
-        answer:
-          "We bieden OEM en A-kwaliteit equivalenten. U kiest zelf; wij adviseren op basis van leeftijd en gebruik van de auto.",
-      },
-    ],
-    relatedSlugs: ["apk-keuring", "airco-service"],
+    relatedSlugs: ["kleine-beurt", "grote-beurt", "banden-wissel"],
   },
   {
     id: "s-003",
+    slug: "kleine-beurt",
+    name: "Kleine beurt",
+    shortDescription:
+      "Controle van de belangrijkste punten, inclusief olie verversen, oliefilter en ruitensproeiervloeistof.",
+    description:
+      "Tijdens de kleine beurt lopen we de auto na op de punten die er het meest toe doen. We verversen de motorolie, vervangen het oliefilter en vullen de ruitensproeiervloeistof bij. Na afloop krijgt u het inspectieformulier mee, zodat u altijd weet hoe de auto er technisch voor staat. De fabrikant schrijft dit onderhoud voor: slijtage komt op tijd aan het licht en een klein gebrek groeit niet uit tot een grotere schade.",
+    image: "/images/garage/workshop-detail.jpg",
+    featured: false,
+    category: "workshop",
+    highlights: [
+      "Motorolie verversen",
+      "Oliefilter vervangen",
+      "Ruitensproeiervloeistof bijvullen",
+      "Inspectieformulier mee naar huis",
+    ],
+    whenNeeded: [
+      "Oudere auto (ongeveer 6 à 7 jaar of ouder): jaarlijks of elke 15.000 km",
+      "Nieuwere auto: zodra het dashboard om onderhoud vraagt",
+      "Wanneer de vorige kleine beurt al een tijd geleden is",
+    ],
+    whyUs: [
+      "Vaste inspectielijst, niets overgeslagen",
+      "Slijtage gemeld vóór het een storing wordt",
+      "Te combineren met APK",
+    ],
+    faq: [
+      {
+        question: "Wanneer is een kleine beurt nodig?",
+        answer:
+          "Bij een auto van een jaar of zes, zeven of ouder rekent u op een kleine beurt per jaar of na elke 15.000 kilometer. Bij een jongere auto verschijnt meestal een melding op het dashboard.",
+      },
+    ],
+    relatedSlugs: ["grote-beurt", "merkbeurt", "apk-keuring"],
+  },
+  {
+    id: "s-004",
+    slug: "grote-beurt",
+    name: "Grote beurt",
+    shortDescription:
+      "Uitgebreide tweejaarlijkse controle: olie, filters, uitlijning, remmen en een volledig inspectierapport.",
+    description:
+      "Tijdens de grote beurt controleren we de auto op een groot aantal punten. We verversen de motorolie, vervangen het oliefilter en het interieurfilter, doen een uitlijncontrole en reinigen en controleren de remmen. Alle onderdelen worden nagelopen op werking, slijtage en beschadiging. U krijgt het inspectierapport mee, zodat u precies weet wat de technische staat is. De beurt overslaan betekent langer doorrijden met een auto die minder betrouwbaar kan zijn.",
+    image: "/images/garage/workshop-bay.jpg",
+    featured: false,
+    category: "workshop",
+    highlights: [
+      "Motorolie, oliefilter en interieurfilter",
+      "Uitlijncontrole",
+      "Remmen reinigen en controleren",
+      "Inspectierapport na afloop",
+    ],
+    whenNeeded: [
+      "Oudere auto (ongeveer 6 à 7 jaar of ouder): elke 2 jaar of elke 30.000 km",
+      "Nieuwere auto: zodra het dashboard om een grote beurt vraagt",
+      "Na een lange periode zonder uitgebreid onderhoud",
+    ],
+    whyUs: [
+      "Meer dan een olie-beurt: de hele auto wordt nagelopen",
+      "Slijtage en beschadiging in één rapport",
+      "Extra werk alleen na uw akkoord",
+    ],
+    faq: [
+      {
+        question: "Wat is het verschil met een kleine beurt?",
+        answer:
+          "De grote beurt is uitgebreider. Naast olie en oliefilter vervangen we het interieurfilter, controleren we de uitlijning en de remmen, en lopen we alle onderdelen na op werking, slijtage en beschadiging.",
+      },
+      {
+        question: "Hoe vaak is een grote beurt nodig?",
+        answer:
+          "Bij een oudere auto doorgaans elke twee jaar of na elke 30.000 kilometer. Bij een jongere auto volgt u de melding op het dashboard.",
+      },
+    ],
+    relatedSlugs: ["kleine-beurt", "merkbeurt", "apk-keuring"],
+  },
+  {
+    id: "s-005",
+    slug: "merkbeurt",
+    name: "Merkbeurt",
+    shortDescription:
+      "Onderhoud precies volgens de autofabrikant, afgestemd op merk, type, bouwjaar en kilometerstand.",
+    description:
+      "Is de auto toe aan onderhoud op maat, kies dan de merkbeurt. Die volgt het schema van de autofabrikant en de merkdealer: volledig afgestemd op uw merk, type, bouwjaar en kilometerstand. Nieuwe onderdelen voldoen aan de fabrieksspecificaties, zodat de fabrieksgarantie behouden blijft.",
+    image: "/images/garage/maintenance.jpg",
+    featured: false,
+    category: "workshop",
+    highlights: [
+      "Volgens fabrieksvoorschrift",
+      "Afgestemd op merk, type, bouwjaar en km-stand",
+      "Onderdelen volgens fabrieksspecificatie",
+      "Fabrieksgarantie blijft behouden",
+    ],
+    whenNeeded: [
+      "Wanneer het onderhoudsschema van de fabrikant daarom vraagt",
+      "Om de fabrieksgarantie te behouden",
+      "Als u onderhoud wilt dat gelijkwaardig is aan de merkdealer",
+    ],
+    whyUs: [
+      "Zelfde voorschriften als de merkdealer",
+      "Persoonlijk advies in de werkplaats",
+      "Concurrerende prijs voor merkwaardig onderhoud",
+    ],
+    faq: [
+      {
+        question: "Blijft mijn garantie geldig?",
+        answer:
+          "Ja. De merkbeurt volgt het fabrieksvoorschrift en de onderdelen voldoen aan de specificaties van de fabrikant. Daarmee blijft de fabrieksgarantie behouden.",
+      },
+    ],
+    relatedSlugs: ["kleine-beurt", "grote-beurt", "apk-keuring"],
+  },
+  {
+    id: "s-006",
     slug: "diagnose",
     name: "Diagnose & storingen",
     shortDescription:
-      "Uitlezen en gericht zoeken naar de oorzaak van storingen en lampjes.",
+      "Uitlezen en gericht zoeken naar de oorzaak van storingen, met moderne diagnoseapparatuur.",
     description:
-      "Met moderne diagnoseapparatuur lezen we merkspecifieke systemen uit. U krijgt een heldere uitleg van de oorzaak en een offerte vóór we repareren.",
+      "Ons team spoort storingen op met de nieuwste technologie en moderne apparatuur, en verhelpt ze vakkundig. We lezen merkspecifieke systemen uit, leggen de oorzaak in gewone taal uit en geven een prijsopgave vóór we repareren. Zo voorkomt u dat er onderdelen worden vervangen die de storing niet oplossen.",
     image: "/images/garage/diagnostics.jpg",
     featured: true,
     category: "workshop",
-    priceFrom: 69,
-    priceLabel: "vanaf",
     highlights: [
-      "Merkspecifieke uitleesapparatuur",
+      "Moderne diagnoseapparatuur",
+      "Merkspecifieke uitlezing",
+      "Prijsopgave vóór de reparatie",
       "Proefrit indien nodig",
-      "Duidelijke diagnose vóór reparatie",
     ],
     whenNeeded: [
       "Motor-, ABS- of airbaglampje brandt",
       "Onverklaarbaar verbruik of vermogensverlies",
-      "Startproblemen of waarschuwingen in het display",
+      "Startproblemen of meldingen in het display",
     ],
     whyUs: [
-      "Ervaring met Opel én andere merken",
-      "Geen giswerk — meten is weten",
-      "Snelle doorlooptijd",
+      "Ervaring met alle gangbare merken",
+      "Eerst meten, dan pas vervangen",
+      "Duidelijke uitleg van de oorzaak",
     ],
     faq: [
       {
         question: "Is diagnose altijd nodig bij een lampje?",
         answer:
-          "Vaak wel. Een lampje kan meerdere oorzaken hebben; uitlezen voorkomt onnodige onderdelenwissel.",
+          "Meestal wel. Eén lampje kan meerdere oorzaken hebben. Uitlezen voorkomt dat u betaalt voor onderdelen die het probleem niet verhelpen.",
       },
     ],
-    relatedSlugs: ["onderhoudsbeurt", "apk-keuring"],
+    relatedSlugs: ["kleine-beurt", "apk-keuring"],
   },
   {
-    id: "s-004",
+    id: "s-007",
     slug: "banden-wissel",
-    name: "Banden & wielen",
+    name: "Banden wisselen",
     shortDescription:
-      "Seizoenswissel, balanceren, uitlijnen en advies over bandenmaten.",
+      "Wielenwissel €40, bandenwissel €70. Inclusief monteren, balanceren en nieuwe ventielen.",
     description:
-      "Winter- en zomerbanden wisselen, opslaan of nieuw aanschaffen. We controleren profieldiepte, spanning en slijtagepatroon.",
+      "Elk jaar wisselen ruim drie miljoen automobilisten van winter- naar zomerbanden en andersom. Plan de wissel op tijd, dan staan uw banden klaar op het afgesproken moment. Een bandenwissel duurt gemiddeld een uur: monteren, balanceren en de ventielen vervangen. Een wielenwissel is sneller klaar, in ongeveer 20 tot 30 minuten. Uitlijnen raden we aan bij nieuwe banden en duurt meestal een half uur. Heeft u lichtmetalen velgen met slotbouten, neem dan de speciale sleutel mee.",
     image: "/images/garage/tires.jpg",
     featured: true,
     category: "workshop",
-    priceFrom: 25,
-    priceLabel: "wissel vanaf",
+    priceFrom: 40,
+    priceLabel: "wielenwissel",
+    prices: [
+      { label: "Wielenwissel", amount: 40 },
+      { label: "Bandenwissel", amount: 70 },
+    ],
     highlights: [
-      "Seizoenswissel",
-      "Balanceren & uitlijnen",
-      "Bandenadvies op maat",
-      "Optionele bandenopslag",
+      "Wielenwissel: €40 voor 4 wielen",
+      "Bandenwissel: €70 voor 4 banden",
+      "Balanceren en nieuwe ventielen",
+      "Uitlijnen in ongeveer 30 minuten",
     ],
     whenNeeded: [
-      "Bij seizoenswisseling",
-      "Bij ongelijkmatige slijtage",
-      "Wanneer het profiel onder de 1,6 mm komt",
+      "Bij de seizoenswissel, zodra het warmer of kouder wordt dan 7 °C",
+      "Bij nieuwe banden, inclusief uitlijnen",
+      "Wanneer u van velgen wisselt",
     ],
     whyUs: [
-      "Scherpe bandenprijzen",
-      "Correcte montage en moment",
-      "Advies zonder upsell-druk",
+      "Vaste prijzen, vooraf bekend",
+      "Banden liggen klaar op de afgesproken tijd",
+      "Montage, balans en ventielen in één beurt",
     ],
     faq: [
       {
-        question: "Kunnen jullie banden opslaan?",
+        question: "Wat kost een bandenwissel?",
         answer:
-          "Ja, vraagt u naar onze opslagmogelijkheden bij het maken van een wisselafspraak.",
+          "Een wielenwissel van vier wielen kost €40. Een bandenwissel van vier banden — demonteren, monteren, balanceren en nieuwe ventielen — kost €70.",
+      },
+      {
+        question: "Hoe lang duurt het?",
+        answer:
+          "Een wielenwissel duurt ongeveer 20 tot 30 minuten. Een bandenwissel gemiddeld een uur. Uitlijnen komt daar nog een half uur bij en is aan te raden bij nieuwe banden.",
+      },
+      {
+        question: "Moet ik iets meenemen?",
+        answer:
+          "Bij lichtmetalen velgen met slotbouten heeft u de speciale sleutel nodig. Neem die mee naar de afspraak.",
       },
     ],
-    relatedSlugs: ["onderhoudsbeurt", "apk-keuring"],
+    relatedSlugs: ["autobanden", "apk-keuring", "grote-beurt"],
   },
   {
-    id: "s-005",
+    id: "s-008",
+    slug: "autobanden",
+    name: "Autobanden",
+    shortDescription:
+      "Zomer-, winter- en allseasonbanden in verschillende prijsklassen, vakkundig gemonteerd.",
+    description:
+      "Banden bepalen de grip, de stabiliteit in bochten en of de auto ook echt stopt als u remt. Wij leveren zomerbanden, winterbanden en 4-seizoenenbanden, in uiteenlopende prijsklassen en kwaliteiten, passend bij uw auto en rijstijl. Nieuwe banden monteren we direct op de velg: gebalanceerd, met een nieuw ventiel. Een set monteren duurt ongeveer een uur; een uitgebreider montagepakket ongeveer anderhalf uur. De wettelijke minimale profieldiepte is 1,6 mm. Wij adviseren eerder te wisselen: zomerbanden onder 2 mm, winterbanden onder 4 mm. Boven de 7 °C horen er zomerbanden onder; op winterbanden doorrijden in de zomer geeft minder grip en snellere slijtage.",
+    image: "/images/garage/workshop.jpg",
+    featured: false,
+    category: "workshop",
+    highlights: [
+      "Zomer, winter en allseason",
+      "Meerdere prijsklassen en kwaliteiten",
+      "Montage, balanceren en nieuw ventiel",
+      "Advies bij 2 mm (zomer) en 4 mm (winter)",
+    ],
+    whenNeeded: [
+      "Profieldiepte onder 2 mm (zomer) of 4 mm (winter)",
+      "Wettelijke grens is 1,6 mm — eerder vervangen rijdt veiliger",
+      "Temperatuur boven 7 °C: tijd voor zomerbanden",
+    ],
+    whyUs: [
+      "Advies zonder een duurdere band op te dringen",
+      "Montage in de eigen werkplaats",
+      "Bandenwissel €70, wielenwissel €40",
+    ],
+    faq: [
+      {
+        question: "Welke band past bij mijn auto?",
+        answer:
+          "Dat hangt af van het seizoen, uw kilometrage en of u vooral in de stad, op de snelweg of in de winter rijdt. We helpen u kiezen tussen zomer, winter en allseason, in een prijsklasse die bij de auto past.",
+      },
+      {
+        question: "Wat kost monteren?",
+        answer:
+          "Een bandenwissel van vier banden kost €70 en duurt ongeveer een uur, inclusief balanceren en nieuwe ventielen. Een wielenwissel kost €40. De prijs van de banden hangt af van maat en kwaliteit.",
+      },
+    ],
+    relatedSlugs: ["banden-wissel", "apk-keuring", "kleine-beurt"],
+  },
+  {
+    id: "s-009",
     slug: "airco-service",
     name: "Airco-service",
     shortDescription:
-      "Vullen, reinigen en controleren van het aircosysteem voor optimale koeling.",
+      "Jaarlijkse controle van de airco, en bijvullen wanneer de koeling terugloopt.",
     description:
-      "Een goed werkende airco is comfortabel én veilig (ontwaseming). Wij controleren lekken, vullen koudemiddel bij en reinigen het systeem waar nodig.",
+      "Een airco die goed werkt, houdt het interieur koel en de ruiten vrij van wasem. Wij adviseren de airco elk jaar te laten controleren en, als dat nodig is, bij te vullen. We kijken naar de werking, vullen koudemiddel bij en reinigen het systeem wanneer er een onaangename geur uit de ventilatie komt.",
     image: "/images/garage/airco.jpg",
     featured: false,
     category: "workshop",
-    priceFrom: 89,
-    priceLabel: "vanaf",
     highlights: [
-      "Aircocheck",
-      "Bijvullen koudemiddel",
-      "Desinfectie op verzoek",
+      "Jaarlijkse aircocheck",
+      "Bijvullen wanneer nodig",
+      "Reiniging bij onaangename geur",
+      "Te combineren met een beurt",
     ],
     whenNeeded: [
-      "Koeling is onvoldoende",
-      "Ongeveer elke 2 jaar preventief",
-      "Bij onaangename geur uit de ventilatie",
+      "Eén keer per jaar, preventief",
+      "Wanneer de koeling minder wordt",
+      "Bij een muffe geur uit de roosters",
     ],
     whyUs: [
-      "Gespecialiseerde aircostations",
+      "Check en bijvullen in één afspraak",
       "Duidelijke prijs vooraf",
-      "Combinatie met onderhoud mogelijk",
+      "Zelfde werkplaats als uw onderhoud",
     ],
     faq: [
       {
-        question: "Hoe vaak moet airco onderhouden worden?",
+        question: "Hoe vaak moet de airco gecontroleerd worden?",
         answer:
-          "Wij adviseren een check elke twee jaar, of eerder bij verminderde werking.",
+          "Eén keer per jaar. Merkt u dat de koeling terugloopt, dan vullen we het systeem bij.",
       },
     ],
-    relatedSlugs: ["onderhoudsbeurt", "diagnose"],
+    relatedSlugs: ["kleine-beurt", "diagnose"],
   },
   {
-    id: "s-006",
+    id: "s-010",
     slug: "schadeherstel",
     name: "Schadeherstel",
     shortDescription:
-      "Herstel van blikschade en cosmetische schade — netjes afgewerkt, klaar voor de weg.",
+      "Beoordeling en herstel van blik- en parkeerschade, netjes afgewerkt en klaar voor de weg.",
     description:
-      "Heeft u schade aan uw auto? Wij beoordelen de schade, stemmen af met uw verzekeraar waar nodig en herstellen uw auto vakkundig. Van kleine deukjes tot grotere herstelklussen.",
+      "Heeft u schade aan de auto? We beoordelen wat er nodig is en herstellen het in de werkplaats: van een kleine parkeerdeuk tot een grotere herstelklus. U hoort vooraf wat we gaan doen. Waar dat helpt, stemmen we de afhandeling af met uw verzekeraar. Na het herstel kan de auto desgewenst meteen mee voor APK of onderhoud.",
     image: "/images/garage/brakes.jpg",
     featured: false,
     category: "workshop",
-    priceFrom: undefined,
-    priceLabel: "op aanvraag",
     highlights: [
-      "Schadebeoordeling",
-      "Afstemming met verzekeraar",
+      "Schadebeoordeling in de werkplaats",
+      "Afstemming met de verzekeraar",
       "Vakkundig herstel",
-      "Nazorg en oplevering",
+      "Oplevering klaar voor de weg",
     ],
     whenNeeded: [
       "Na een aanrijding of parkeerschade",
-      "Bij hagelschade of cosmetische schade",
-      "Wanneer u een nette oplevering wilt",
+      "Bij cosmetische schade die u netjes wilt laten maken",
+      "Wanneer herstel en APK in één bezoek moeten",
     ],
     whyUs: [
-      "Ervaren werkplaats in Apeldoorn",
-      "Transparante communicatie",
-      "Combinatie met APK of onderhoud mogelijk",
+      "Eén aanspreekpunt in Apeldoorn",
+      "Transparante communicatie over de schade",
+      "Combinatie met APK of onderhoud",
     ],
     faq: [
       {
         question: "Werken jullie met verzekeraars?",
         answer:
-          "Ja, we kunnen de schadeafhandeling met uw verzekeraar afstemmen. Neem contact op voor de mogelijkheden.",
+          "Ja. We kunnen de schadeafhandeling met uw verzekeraar afstemmen. Neem contact op voor de mogelijkheden van uw dossier.",
       },
     ],
-    relatedSlugs: ["apk-keuring", "autoverzekering"],
+    relatedSlugs: ["apk-keuring", "diagnose"],
   },
   {
-    id: "s-007",
-    slug: "private-lease",
-    name: "Private lease",
+    id: "s-011",
+    slug: "takelservice",
+    name: "24/7 takelservice",
     shortDescription:
-      "Rijden in een auto met een vast maandbedrag — zonder grote aanschaf in één keer.",
+      "Altijd bereikbaar, altijd hulp. Dag en nacht een takelwagen als u met pech staat.",
     description:
-      "Wilt u bij Garage Ap van Beek een auto aanschaffen, maar liever niet het hele bedrag in één keer betalen? Met private lease betaalt u elke maand een vast bedrag. Verzekering, wegenbelasting en onderhoud zijn inbegrepen; alleen tanken doet u zelf. Wij werken samen met een gespecialiseerde leasemaatschappij en geven u vooraf een helder beeld van wat erbij zit en wat de maandelijkse kosten zijn.",
-    image: "/images/garage/private-lease.jpg",
-    featured: true,
-    category: "mobility",
-    priceLabel: "op maat",
-    highlights: [
-      "Vast maandbedrag",
-      "Verzekering, wegenbelasting & onderhoud inbegrepen",
-      "Geen fiscale bijtelling (particulier)",
-      "Duidelijke kilometerafspraak vooraf",
-    ],
-    whenNeeded: [
-      "U wilt een auto zonder grote eenmalige investering",
-      "U zoekt overzichtelijke maandelijkse kosten",
-      "U wilt ontzorgd worden rond verzekering en onderhoud",
-    ],
-    whyUs: [
-      "Advies via uw vertrouwde garage in Apeldoorn",
-      "Samenwerking met gespecialiseerde lease-partner",
-      "Heldere uitleg over inbegrepen kosten",
-    ],
-    faq: [
-      {
-        question: "Wat is private lease precies?",
-        answer:
-          "Private lease is een vorm van huren: de auto blijft eigendom van de leasemaatschappij. Aan het eind van de looptijd levert u de auto weer in. U betaalt een vast maandbedrag en heeft geen omkijken naar verzekering, wegenbelasting of onderhoud.",
-      },
-      {
-        question: "Kan ik private lease via jullie regelen?",
-        answer:
-          "Ja. Neem contact op of kom langs; wij bespreken de mogelijkheden en de maandelijkse kosten voor uw situatie.",
-      },
-    ],
-    relatedSlugs: ["autoverzekering", "onderhoudsbeurt"],
-  },
-  {
-    id: "s-008",
-    slug: "autoverzekering",
-    name: "Autoverzekering",
-    shortDescription:
-      "Verzekering op maat bij aankoop — WA, WA+ of Allrisk, direct geregeld.",
-    description:
-      "Koopt u een (nieuwe) auto, dan moet die vanaf dag één goed verzekerd zijn. Bij Garage Ap van Beek regelen we dat graag mee. We voeren de gegevens van uw auto in en geven een offerte op maat. U kiest zelf de dekking: WA, WA+ Beperkt Casco of Allrisk. Zo heeft u alles in één keer geregeld — en bij schade regelen wij reparatie en afhandeling.",
-    image: "/images/garage/autoverzekering.jpg",
-    featured: true,
-    category: "mobility",
-    priceLabel: "offerte op maat",
-    highlights: [
-      "Offerte op maat bij aankoop",
-      "Keuze uit WA, WA+ of Allrisk",
-      "Alles in één keer geregeld",
-      "Schadeherstel in onze werkplaats",
-    ],
-    whenNeeded: [
-      "Bij aankoop van een nieuwe of gebruikte auto",
-      "Wanneer u dekking wilt herzien",
-      "Als u schade wilt laten afhandelen via ons",
-    ],
-    whyUs: [
-      "Persoonlijk advies in de showroom",
-      "Direct afsluiten bij oplevering mogelijk",
-      "Bekende monteurs bij schade — geen vreemde garage",
-    ],
-    faq: [
-      {
-        question: "Welke dekking past bij mij?",
-        answer:
-          "Dat hangt af van leeftijd, waarde en accessoires van de auto, en wat u belangrijk vindt. Wij helpen u bij die keuze.",
-      },
-      {
-        question: "Regelen jullie ook schade?",
-        answer:
-          "Ja. Bij schade nemen we reparatie en afhandeling uit handen, zodat u bij uw vertrouwde garage blijft.",
-      },
-    ],
-    relatedSlugs: ["schadeherstel", "private-lease"],
-  },
-  {
-    id: "s-009",
-    slug: "bovag-pechhulp",
-    name: "BOVAG Pechhulp",
-    shortDescription:
-      "Pech onderweg? 24/7 hulp via BOVAG Pechhulp — snel weer op weg.",
-    description:
-      "Ook met goed onderhoud kan pech onderweg voorkomen. Bij Garage Ap van Beek bieden we pechservice in samenwerking met BOVAG Pechhulp. Bij panne belt u het speciale nummer; BOVAG Pechhulp schakelt uw BOVAG-autobedrijf of een professionele hulpdienst in. Zo bent u 24 uur per dag, 7 dagen per week gedekt.",
+      "Staat u stil door pech, een lekke band of een ongeval? Bel ons: de takelservice van Car Service Nederland is 24 uur per dag, 7 dagen per week bereikbaar. We halen de auto op en brengen hem naar onze werkplaats in Apeldoorn, of naar een adres dat u doorgeeft. Daarna kunnen we meteen kijken wat er nodig is om weer veilig de weg op te gaan.",
     image: "/images/garage/pechhulp.jpg",
     featured: true,
-    category: "mobility",
-    priceLabel: "op aanvraag",
+    category: "workshop",
+    priceLabel: "24 uur per dag, 7 dagen per week",
+    cta: "phone",
     highlights: [
-      "Samenwerking met BOVAG Pechhulp",
-      "24/7 bereikbaar",
-      "Snelle hulp bij pech onderweg",
-      "Kosten en dekking in overleg",
+      "Dag en nacht bereikbaar",
+      "Takelen bij pech of ongeval",
+      "Transport naar onze werkplaats",
+      "Daarna diagnose en herstel mogelijk",
     ],
     whenNeeded: [
-      "U wilt zekerheid bij pech onderweg",
-      "U reist veel of lange afstanden",
-      "U wilt pechhulp via uw BOVAG-garage",
+      "De auto start niet of blijft stilstaan",
+      "Na een ongeval, of wanneer de auto niet meer veilig rijdt",
+      "Een lekke band of ander defect onderweg",
+      "’s Avonds, ’s nachts of in het weekend",
     ],
     whyUs: [
-      "Gekoppeld aan uw vertrouwde garage",
-      "Landelijke BOVAG-dekking",
-      "Persoonlijk advies over kosten en mogelijkheden",
+      "Altijd bereikbaar, altijd hulp",
+      "Eén nummer, ook buiten openingstijden",
+      "Aansluitend onderhoud in onze eigen werkplaats",
     ],
     faq: [
       {
-        question: "Hoe werkt BOVAG Pechhulp?",
+        question: "Zijn jullie ook ’s nachts bereikbaar?",
         answer:
-          "Bij pech belt u het pechnummer. BOVAG Pechhulp schakelt direct uw BOVAG-autobedrijf of een professionele hulpdienst in om u weer op weg te helpen.",
+          "Ja. De takelservice is 24 uur per dag en 7 dagen per week bereikbaar. Bel ons, ook buiten de openingstijden van de werkplaats.",
       },
       {
-        question: "Wat kost pechhulp?",
+        question: "Waar brengen jullie de auto naartoe?",
         answer:
-          "De prijs hangt af van de gekozen dekking. Neem contact op; we bespreken de mogelijkheden en kosten.",
+          "Standaard naar onze werkplaats in Apeldoorn, zodat we daarna kunnen kijken wat er aan de hand is. Een ander adres is in overleg mogelijk.",
       },
     ],
-    relatedSlugs: ["onderhoudsbeurt", "diagnose"],
+    relatedSlugs: ["diagnose", "schadeherstel", "apk-keuring"],
   },
 ];

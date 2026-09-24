@@ -6,6 +6,7 @@ import type { Vehicle } from "@/types/vehicle";
 import { garage } from "@/config/garage";
 import { buildVehicleWhatsAppMessage } from "@/lib/whatsapp";
 import { formatPrice, vehicleTitle } from "@/lib/format";
+import { leaseFromPrice } from "@/lib/lease";
 import { cn } from "@/lib/cn";
 import { buttonVariants } from "@/components/ui/button";
 import { PhoneLink } from "@/components/shared/phone-link";
@@ -23,6 +24,7 @@ export function StickyVehicleCta({
   if (vehicle.status === "sold") return null;
 
   const title = vehicleTitle(vehicle);
+  const leaseFrom = leaseFromPrice(vehicle.price);
   const whatsappMessage = buildVehicleWhatsAppMessage(garage, vehicle);
   const appointmentHref = `/afspraak?occasion=${encodeURIComponent(vehicle.slug)}`;
 
@@ -39,6 +41,11 @@ export function StickyVehicleCta({
           <p className="font-display text-base font-semibold text-ink">
             {formatPrice(vehicle.price)}
           </p>
+          {leaseFrom > 0 ? (
+            <a href="#lease" className="text-xs text-muted">
+              Vanaf {formatPrice(leaseFrom)} p/m leasen
+            </a>
+          ) : null}
         </div>
 
         <div className="flex shrink-0 items-center gap-2">

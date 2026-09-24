@@ -4,7 +4,7 @@ import { Reveal } from "@/components/shared/reveal";
 
 export function WhyUs() {
   return (
-    <section className="relative overflow-hidden bg-[#1a1410] text-white">
+    <section className="relative overflow-hidden bg-[#12151a] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{

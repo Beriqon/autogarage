@@ -10,7 +10,7 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#1a1410] text-paper md:items-center">
+    <section className="relative isolate flex min-h-[100svh] items-end overflow-hidden bg-[#12151a] text-paper md:items-center">
       <motion.div
         className="absolute inset-0"
         initial={reduceMotion ? false : { scale: 1.06 }}
@@ -18,22 +18,22 @@ export function Hero() {
         transition={{ duration: 10, ease: [0.22, 1, 0.36, 1] }}
       >
         <Image
-          src="/images/garage/vestiging-hero.jpg"
-          alt={`Vestiging van ${garage.name} aan de Veenweg in ${garage.address.city}`}
+          src="/images/garage/herofoto.jpg"
+          alt={`Vestiging van ${garage.name} in ${garage.address.city}`}
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[82%_42%] md:object-[88%_40%]"
+          className="object-cover object-[52%_42%] md:object-center"
         />
       </motion.div>
 
       {/* Darker on the left for text; keep the building readable on the right */}
       <div
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(26,20,16,0.88)_0%,rgba(26,20,16,0.62)_32%,rgba(26,20,16,0.2)_58%,rgba(26,20,16,0.22)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(18,21,26,0.88)_0%,rgba(18,21,26,0.62)_32%,rgba(18,21,26,0.2)_58%,rgba(18,21,26,0.22)_100%)]"
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(26,20,16,0.25)_0%,transparent_35%,rgba(26,20,16,0.55)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.25)_0%,transparent_35%,rgba(18,21,26,0.55)_100%)]"
         aria-hidden
       />
 
@@ -53,8 +53,8 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 max-w-md text-sm leading-relaxed text-white/75 md:text-base">
-            Occasions, APK en onderhoud voor alle merken — met specialisme Opel
-            in {garage.address.city}.
+            Occasions te koop of te leasen, APK, onderhoud en banden in{" "}
+            {garage.address.city}. Reparatie, inkoop en verkoop onder één dak.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">

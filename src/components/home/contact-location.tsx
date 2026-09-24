@@ -25,26 +25,23 @@ export function ContactLocation() {
             {address.city}
           </h2>
           <p className="mt-4 max-w-sm text-base leading-relaxed text-muted md:text-lg">
-            Twee vestigingen aan de Veenweg. Parkeren voor de deur — bel of kom
-            langs.
+            {address.street} in {address.city}. Parkeren voor de deur — bel
+            of kom langs.
           </p>
 
           <address className="mt-10 not-italic">
             <p className="font-display text-lg tracking-tight text-ink">
-              Autoservice Ap van Beek
+              {garage.name}
             </p>
             <p className="mt-2 text-base leading-relaxed text-muted">
-              Veenweg 44
+              {address.street}
               <br />
-              7336 AG Apeldoorn
+              {address.postalCode} {address.city}
             </p>
-            <p className="mt-5 font-display text-lg tracking-tight text-ink">
-              Garage Ap van Beek
-            </p>
-            <p className="mt-2 text-base leading-relaxed text-muted">
-              Veenweg 38F
+            <p className="mt-5 text-base leading-relaxed text-muted">
+              Inkoop & verkoop: 06 24 46 08 53
               <br />
-              7336 AG Apeldoorn
+              Klantenservice: {garage.phoneDisplay}
             </p>
           </address>
 
