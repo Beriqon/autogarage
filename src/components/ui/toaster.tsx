@@ -10,7 +10,7 @@ export function Toaster() {
       toastOptions={{
         classNames: {
           toast:
-            "border border-line bg-surface text-ink shadow-[0_8px_24px_rgba(16,18,20,0.12)] rounded-[2px]",
+            "border border-line bg-surface text-ink shadow-[0_8px_24px_rgba(24,24,24,0.12)] rounded-[2px]",
           title: "font-display text-sm font-semibold",
           description: "text-sm text-muted",
           actionButton: "bg-accent text-white",

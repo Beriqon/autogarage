@@ -54,6 +54,9 @@ export function OpeningHours({
           </li>
         ))}
       </ul>
+      <p className={cn("mt-3 text-sm", isDark ? "text-white/65" : "text-muted")}>
+        ’s Avonds eventueel mogelijk op afspraak.
+      </p>
     </div>
   );
 }

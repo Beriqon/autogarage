@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { garage } from "@/config/garage";
 import { createPageMetadata } from "@/lib/seo";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
@@ -15,7 +16,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Contact",
   description: `Neem contact op met ${garage.name} in ${garage.address.city}. Bel, app of stuur een bericht — ${garage.address.street}.`,
   path: "/contact",
-  image: "/images/garage/showroom-cars.jpg",
+  image: "/images/damming/voorkant3.webp",
 });
 
 export default function ContactPage() {
@@ -39,13 +40,14 @@ export default function ContactPage() {
       />
 
       <PageHero
-        title="Contact"
+        action={{ label: "Neem contact op", href: "#contactformulier" }}
+        title="Welkom bij Damming"
         description={`Stel uw vraag over occasions, onderhoud of een bezoek. U bereikt ${garage.shortName} telefonisch of met het formulier — welkom aan de ${address.street} in ${address.city}.`}
-        imageSrc="/images/garage/showroom-cars.jpg"
-        imageAlt={`Showroom van ${garage.name} in ${address.city}`}
+        imageSrc="/images/damming/voorkant3.webp"
+        imageAlt="Voorgevel en ingang van Garage Damming"
       />
 
-      <section className="bg-paper">
+      <section id="contactformulier" className="scroll-mt-24 bg-paper">
         <Container className="py-16 md:py-20 lg:py-24">
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16">
@@ -79,7 +81,7 @@ export default function ContactPage() {
                       Inkoop & verkoop
                       <br />
                       <a href={`tel:${garage.whatsapp}`} className="text-ink">
-                        06 24 46 08 53
+                        {garage.phoneDisplay}
                       </a>
                     </p>
                     <p className="mt-4 text-sm leading-relaxed text-muted md:text-base">
@@ -141,7 +143,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      <section className="relative overflow-hidden bg-[#12151a] text-white">
+      <section className="relative overflow-hidden bg-[#181818] text-white">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.07]"
           style={{
@@ -173,6 +175,27 @@ export default function ContactPage() {
         </Reveal>
       </section>
 
+      <section className="bg-paper">
+        <Container className="py-16 md:py-24">
+          <p className="text-xs font-medium uppercase tracking-[0.18em] text-accent">Uw bezoek</p>
+          <h2 className="mt-3 font-display text-3xl text-ink md:text-4xl">Zo herkent u ons</h2>
+          <p className="mt-4 max-w-xl text-muted">U vindt ons aan de Prinsenweide 5. Kom gerust kennismaken, bekijk de showroom of neem plaats met een kop koffie.</p>
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
+            {[
+              { src: "voorkant2", title: "Welkom bij Damming", text: "Onze voorgevel aan de Prinsenweide." },
+              { src: "zijingang", title: "Naast het pand", text: "Een herkenningspunt bij uw bezoek aan onze werkplaats." },
+              { src: "wachtruimte", title: "De koffie staat klaar", text: "Neem rustig plaats in onze wachtruimte." },
+            ].map((photo) => (
+              <figure key={photo.src}>
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <Image src={`/images/damming/${photo.src}.webp`} alt={photo.title} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
+                </div>
+                <figcaption className="mt-4"><h3 className="font-display text-xl text-ink">{photo.title}</h3><p className="mt-2 text-sm text-muted">{photo.text}</p></figcaption>
+              </figure>
+            ))}
+          </div>
+        </Container>
+      </section>
       <CtaBand />
     </>
   );

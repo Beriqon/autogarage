@@ -14,9 +14,9 @@ import { ServicesShowcase } from "@/components/services/services-showcase";
 
 export const metadata: Metadata = createPageMetadata({
   title: "Diensten",
-  description: `APK, kleine en grote beurt, merkbeurt, diagnose, banden, airco en 24/7 takelservice bij ${garage.name} in ${garage.address.city}. Wielenwissel €40, bandenwissel €70.`,
+  description: `APK, kleine en grote beurt, merkbeurt, diagnose, banden, airco en reparatie bij ${garage.name} in ${garage.address.city}. Wielenwissel €40, bandenwissel €70.`,
   path: "/diensten",
-  image: "/images/garage/workshop.jpg",
+  image: "/images/stock/inspection.jpg",
 });
 
 const workshopPillars = [
@@ -54,26 +54,27 @@ export default function DienstenPage() {
       />
 
       <PageHero
-        title="Diensten"
-        description={`APK, onderhoud, banden en 24/7 takelservice bij ${garage.shortName} in ${garage.address.city}. Altijd bereikbaar, altijd hulp — ook ’s nachts en in het weekend.`}
-        imageSrc="/images/garage/workshop.jpg"
-        imageAlt={`Werkplaats van ${garage.name} in ${garage.address.city}`}
+        action={{ label: "Ontdek onze diensten", href: "#diensten" }}
+        title="Aandacht voor ieder detail."
+        description={`APK, onderhoud, banden en airco-service bij ${garage.shortName} in ${garage.address.city}. Vakkundig onderhoud en persoonlijk advies. ’s Avonds eventueel op afspraak.`}
+        imageSrc="/images/stock/inspection.jpg"
+        imageAlt="Inspectie van een auto op de hefbrug"
       />
 
-      <ServicesShowcase services={workshopServices} />
+      <div id="diensten" className="scroll-mt-20"><ServicesShowcase services={workshopServices} /></div>
 
       <section className="bg-paper">
         <div className="grid md:grid-cols-2">
-          <Reveal className="relative hidden min-h-[360px] overflow-hidden md:block lg:min-h-[640px]">
+          <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[640px]">
             <Image
-              src="/images/garage/workshop-detail.jpg"
-              alt={`Detail van de werkplaats bij ${garage.name}`}
+              src="/images/stock/oil-check.jpg"
+              alt="Controle van het motoroliepeil"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
             />
             <div
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.1)_0%,rgba(18,21,26,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(18,21,26,0)_60%,rgba(242,243,245,0.15)_100%)]"
+              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.1)_0%,rgba(24,24,24,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(24,24,24,0)_60%,rgba(245,244,241,0.15)_100%)]"
               aria-hidden
             />
           </Reveal>

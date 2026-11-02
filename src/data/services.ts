@@ -9,7 +9,7 @@ export const services: Service[] = [
       "RDW-erkende keuring op veiligheid en milieu, met een duidelijk rapport na afloop.",
     description:
       "Verloopt de APK van uw auto binnen twee maanden? Maak dan op tijd een afspraak. Onze gediplomeerde keurmeesters controleren de auto volgens de RDW-regels. Tijdens de Algemene Periodieke Keuring kijken we of de auto voldoet aan de Europese eisen voor veiligheid en milieu: banden, remmen, verlichting, schokdempers en meer. Gebreken komen zo op tijd aan het licht, nog vóór ze tot een grotere reparatie leiden. Na afloop ontvangt u een rapport: goedgekeurd, of met de punten die eerst verholpen moeten worden.",
-    image: "/images/garage/apk.jpg",
+    image: "/images/stock/inspection.jpg",
     featured: true,
     category: "workshop",
     highlights: [
@@ -51,7 +51,7 @@ export const services: Service[] = [
       "Controle van de belangrijkste punten, inclusief olie verversen, oliefilter en ruitensproeiervloeistof.",
     description:
       "Tijdens de kleine beurt lopen we de auto na op de punten die er het meest toe doen. We verversen de motorolie, vervangen het oliefilter en vullen de ruitensproeiervloeistof bij. Na afloop krijgt u het inspectieformulier mee, zodat u altijd weet hoe de auto er technisch voor staat. De fabrikant schrijft dit onderhoud voor: slijtage komt op tijd aan het licht en een klein gebrek groeit niet uit tot een grotere schade.",
-    image: "/images/garage/workshop-detail.jpg",
+    image: "/images/stock/oil-check.jpg",
     featured: false,
     category: "workshop",
     highlights: [
@@ -87,7 +87,7 @@ export const services: Service[] = [
       "Uitgebreide tweejaarlijkse controle: olie, filters, uitlijning, remmen en een volledig inspectierapport.",
     description:
       "Tijdens de grote beurt controleren we de auto op een groot aantal punten. We verversen de motorolie, vervangen het oliefilter en het interieurfilter, doen een uitlijncontrole en reinigen en controleren de remmen. Alle onderdelen worden nagelopen op werking, slijtage en beschadiging. U krijgt het inspectierapport mee, zodat u precies weet wat de technische staat is. De beurt overslaan betekent langer doorrijden met een auto die minder betrouwbaar kan zijn.",
-    image: "/images/garage/workshop-bay.jpg",
+    image: "/images/stock/workshop.jpg",
     featured: false,
     category: "workshop",
     highlights: [
@@ -128,7 +128,7 @@ export const services: Service[] = [
       "Onderhoud precies volgens de autofabrikant, afgestemd op merk, type, bouwjaar en kilometerstand.",
     description:
       "Is de auto toe aan onderhoud op maat, kies dan de merkbeurt. Die volgt het schema van de autofabrikant en de merkdealer: volledig afgestemd op uw merk, type, bouwjaar en kilometerstand. Nieuwe onderdelen voldoen aan de fabrieksspecificaties, zodat de fabrieksgarantie behouden blijft.",
-    image: "/images/garage/maintenance.jpg",
+    image: "/images/stock/oil-service.jpg",
     featured: false,
     category: "workshop",
     highlights: [
@@ -164,7 +164,7 @@ export const services: Service[] = [
       "Uitlezen en gericht zoeken naar de oorzaak van storingen, met moderne diagnoseapparatuur.",
     description:
       "Ons team spoort storingen op met de nieuwste technologie en moderne apparatuur, en verhelpt ze vakkundig. We lezen merkspecifieke systemen uit, leggen de oorzaak in gewone taal uit en geven een prijsopgave vóór we repareren. Zo voorkomt u dat er onderdelen worden vervangen die de storing niet oplossen.",
-    image: "/images/garage/diagnostics.jpg",
+    image: "/images/stock/diagnostics.jpg",
     featured: true,
     category: "workshop",
     highlights: [
@@ -200,7 +200,7 @@ export const services: Service[] = [
       "Wielenwissel €40, bandenwissel €70. Inclusief monteren, balanceren en nieuwe ventielen.",
     description:
       "Elk jaar wisselen ruim drie miljoen automobilisten van winter- naar zomerbanden en andersom. Plan de wissel op tijd, dan staan uw banden klaar op het afgesproken moment. Een bandenwissel duurt gemiddeld een uur: monteren, balanceren en de ventielen vervangen. Een wielenwissel is sneller klaar, in ongeveer 20 tot 30 minuten. Uitlijnen raden we aan bij nieuwe banden en duurt meestal een half uur. Heeft u lichtmetalen velgen met slotbouten, neem dan de speciale sleutel mee.",
-    image: "/images/garage/tires.jpg",
+    image: "/images/stock/tires.jpg",
     featured: true,
     category: "workshop",
     priceFrom: 40,
@@ -252,7 +252,7 @@ export const services: Service[] = [
       "Zomer-, winter- en allseasonbanden in verschillende prijsklassen, vakkundig gemonteerd.",
     description:
       "Banden bepalen de grip, de stabiliteit in bochten en of de auto ook echt stopt als u remt. Wij leveren zomerbanden, winterbanden en 4-seizoenenbanden, in uiteenlopende prijsklassen en kwaliteiten, passend bij uw auto en rijstijl. Nieuwe banden monteren we direct op de velg: gebalanceerd, met een nieuw ventiel. Een set monteren duurt ongeveer een uur; een uitgebreider montagepakket ongeveer anderhalf uur. De wettelijke minimale profieldiepte is 1,6 mm. Wij adviseren eerder te wisselen: zomerbanden onder 2 mm, winterbanden onder 4 mm. Boven de 7 °C horen er zomerbanden onder; op winterbanden doorrijden in de zomer geeft minder grip en snellere slijtage.",
-    image: "/images/garage/workshop.jpg",
+    image: "/images/stock/tires.jpg",
     featured: false,
     category: "workshop",
     highlights: [
@@ -293,7 +293,7 @@ export const services: Service[] = [
       "Jaarlijkse controle van de airco, en bijvullen wanneer de koeling terugloopt.",
     description:
       "Een airco die goed werkt, houdt het interieur koel en de ruiten vrij van wasem. Wij adviseren de airco elk jaar te laten controleren en, als dat nodig is, bij te vullen. We kijken naar de werking, vullen koudemiddel bij en reinigen het systeem wanneer er een onaangename geur uit de ventilatie komt.",
-    image: "/images/garage/airco.jpg",
+    image: "/images/stock/engine.jpg",
     featured: false,
     category: "workshop",
     highlights: [
@@ -329,7 +329,7 @@ export const services: Service[] = [
       "Beoordeling en herstel van blik- en parkeerschade, netjes afgewerkt en klaar voor de weg.",
     description:
       "Heeft u schade aan de auto? We beoordelen wat er nodig is en herstellen het in de werkplaats: van een kleine parkeerdeuk tot een grotere herstelklus. U hoort vooraf wat we gaan doen. Waar dat helpt, stemmen we de afhandeling af met uw verzekeraar. Na het herstel kan de auto desgewenst meteen mee voor APK of onderhoud.",
-    image: "/images/garage/brakes.jpg",
+    image: "/images/stock/brakes.jpg",
     featured: false,
     category: "workshop",
     highlights: [
@@ -356,49 +356,5 @@ export const services: Service[] = [
       },
     ],
     relatedSlugs: ["apk-keuring", "diagnose"],
-  },
-  {
-    id: "s-011",
-    slug: "takelservice",
-    name: "24/7 takelservice",
-    shortDescription:
-      "Altijd bereikbaar, altijd hulp. Dag en nacht een takelwagen als u met pech staat.",
-    description:
-      "Staat u stil door pech, een lekke band of een ongeval? Bel ons: de takelservice van Car Service Nederland is 24 uur per dag, 7 dagen per week bereikbaar. We halen de auto op en brengen hem naar onze werkplaats in Apeldoorn, of naar een adres dat u doorgeeft. Daarna kunnen we meteen kijken wat er nodig is om weer veilig de weg op te gaan.",
-    image: "/images/garage/pechhulp.jpg",
-    featured: true,
-    category: "workshop",
-    priceLabel: "24 uur per dag, 7 dagen per week",
-    cta: "phone",
-    highlights: [
-      "Dag en nacht bereikbaar",
-      "Takelen bij pech of ongeval",
-      "Transport naar onze werkplaats",
-      "Daarna diagnose en herstel mogelijk",
-    ],
-    whenNeeded: [
-      "De auto start niet of blijft stilstaan",
-      "Na een ongeval, of wanneer de auto niet meer veilig rijdt",
-      "Een lekke band of ander defect onderweg",
-      "’s Avonds, ’s nachts of in het weekend",
-    ],
-    whyUs: [
-      "Altijd bereikbaar, altijd hulp",
-      "Eén nummer, ook buiten openingstijden",
-      "Aansluitend onderhoud in onze eigen werkplaats",
-    ],
-    faq: [
-      {
-        question: "Zijn jullie ook ’s nachts bereikbaar?",
-        answer:
-          "Ja. De takelservice is 24 uur per dag en 7 dagen per week bereikbaar. Bel ons, ook buiten de openingstijden van de werkplaats.",
-      },
-      {
-        question: "Waar brengen jullie de auto naartoe?",
-        answer:
-          "Standaard naar onze werkplaats in Apeldoorn, zodat we daarna kunnen kijken wat er aan de hand is. Een ander adres is in overleg mogelijk.",
-      },
-    ],
-    relatedSlugs: ["diagnose", "schadeherstel", "apk-keuring"],
   },
 ];

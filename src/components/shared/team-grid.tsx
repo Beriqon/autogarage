@@ -12,7 +12,7 @@ export function TeamGrid({ members, className }: TeamGridProps) {
   if (members.length === 0) return null;
 
   return (
-    <ul className={cn("grid grid-cols-2 lg:grid-cols-4", className)}>
+    <ul className={cn("grid grid-cols-1 sm:grid-cols-3", className)}>
       {members.map((member, index) => (
         <li key={member.id}>
           <Reveal delay={0.05 * index} className="h-full">
@@ -22,13 +22,13 @@ export function TeamGrid({ members, className }: TeamGridProps) {
                   src={member.image}
                   alt={member.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 640px) 100vw, 33vw"
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
                 />
               </div>
 
               <div
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.05)_0%,rgba(18,21,26,0.3)_50%,rgba(18,21,26,0.92)_100%)]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.05)_0%,rgba(24,24,24,0.3)_50%,rgba(24,24,24,0.92)_100%)]"
                 aria-hidden
               />
 

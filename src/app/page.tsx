@@ -14,7 +14,6 @@ import { Container } from "@/components/ui/container";
 import { Hero } from "@/components/home/hero";
 import { SellYourCar } from "@/components/home/sell-your-car";
 import { FeaturedOccasions } from "@/components/home/featured-occasions";
-import { LeasePreview } from "@/components/home/lease-preview";
 import { ServicesPreview } from "@/components/home/services-preview";
 import { MobilityServices } from "@/components/home/mobility-services";
 import { StatsBand } from "@/components/home/stats-band";
@@ -27,7 +26,7 @@ export const metadata: Metadata = createPageMetadata({
   title: `Occasions & garage in ${garage.address.city}`,
   description: garage.description,
   path: "/",
-  image: "/images/garage/herofoto.jpg",
+  image: "/images/damming/voorkant3.webp",
 });
 
 export default function Home() {
@@ -48,9 +47,8 @@ export default function Home() {
     <>
       <Hero />
       <FeaturedOccasions vehicles={vehicles} />
-      <section className="bg-paper" aria-label="Financieren en inkoop">
-        <Container className="grid gap-4 py-4 sm:grid-cols-2 sm:gap-5 sm:py-6 lg:py-8">
-          <LeasePreview />
+      <section className="bg-paper" aria-label="Auto verkopen">
+        <Container className="grid gap-4 py-4 sm:gap-5 sm:py-6 lg:py-8">
           <SellYourCar />
         </Container>
       </section>

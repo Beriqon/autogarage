@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { CookiePreferencesButton } from "@/components/privacy/cookie-consent";
 import Image from "next/image";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { garage } from "@/config/garage";
 import { footerNav, legalNav } from "@/config/navigation";
 import { Container } from "@/components/ui/container";
@@ -23,16 +25,10 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Link
               href="/"
-              className="inline-flex focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-              aria-label={`${garage.name} – naar home`}
+              className="inline-flex py-2 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              aria-label="Garage Damming – naar home"
             >
-              <Image
-                src={garage.logo}
-                alt={garage.name}
-                width={160}
-                height={160}
-                className="size-16 rounded-full md:size-20"
-              />
+              <BrandLogo className="origin-left scale-110" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/65">
               {garage.description}
@@ -95,12 +91,46 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
+        <section
+          aria-labelledby="footer-erkenningen"
+          className="mt-12 flex flex-col gap-6 rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-6 sm:flex-row sm:items-center sm:justify-between md:px-8"
+        >
+          <div>
+            <h2 id="footer-erkenningen" className="font-display text-xl text-white">
+              Erkend vakmanschap
+            </h2>
+            <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/60">
+              RDW erkend en erkend leerbedrijf. Zorg voor uw auto én voor de
+              vakmensen van morgen.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-6 sm:gap-8">
+            <Image
+              src="/images/brand/rdw-erkend.webp"
+              alt="RDW erkend"
+              width={303}
+              height={169}
+              sizes="160px"
+              className="h-auto w-40 object-contain"
+            />
+            <Image
+              src="/images/brand/erkend-leerbedrijf.webp"
+              alt="Erkend leerbedrijf – wij leiden vakmensen op"
+              width={250}
+              height={250}
+              sizes="112px"
+              className="h-auto w-28 object-contain"
+            />
+          </div>
+        </section>
+
+        <div className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
           <p>
             © {year} {garage.legalName}
             {garage.kvk ? ` · KVK ${garage.kvk}` : null}
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
+            <li><CookiePreferencesButton /></li>
             {legalNav.map((item) => (
               <li key={item.href}>
                 <Link

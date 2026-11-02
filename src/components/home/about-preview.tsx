@@ -11,14 +11,14 @@ export function AboutPreview() {
       <div className="grid md:grid-cols-2">
         <Reveal className="relative min-h-[280px] overflow-hidden sm:min-h-[360px] md:min-h-[520px] lg:min-h-[640px]">
           <Image
-            src="/images/garage/about-welcome.jpg"
-            alt={`Werkplaats van ${garage.name}`}
+            src="/images/damming/showroom1.webp"
+            alt="Een kijkje in de showroom van Garage Damming"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
           />
           <div
-            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.1)_0%,rgba(18,21,26,0.35)_100%)] md:bg-[linear-gradient(90deg,rgba(18,21,26,0)_60%,rgba(242,243,245,0.15)_100%)]"
+            className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.1)_0%,rgba(24,24,24,0.35)_100%)] md:bg-[linear-gradient(90deg,rgba(24,24,24,0)_60%,rgba(245,244,241,0.15)_100%)]"
             aria-hidden
           />
         </Reveal>

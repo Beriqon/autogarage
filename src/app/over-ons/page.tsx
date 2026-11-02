@@ -23,7 +23,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Over ons",
   description: `Leer ${garage.name} in ${garage.address.city} kennen: autoreparatie, onderhoud, occasions, inkoop, verkoop, import en export.`,
   path: "/over-ons",
-  image: "/images/garage/over-ons.jpg",
+  image: "/images/damming/voorkant3.webp",
 });
 
 export default function OverOnsPage() {
@@ -45,24 +45,25 @@ export default function OverOnsPage() {
       />
 
       <PageHero
-        title="Over ons"
+        action={{ label: "Plan een kennismaking", href: "/afspraak" }}
+        title="Persoonlijk. Vakkundig. Damming."
         description={`${garage.description} Occasions uit eigen voorraad en een werkplaats voor onderhoud en reparatie.`}
-        imageSrc="/images/garage/over-ons.jpg"
-        imageAlt={`Vestiging van ${garage.name}`}
+        imageSrc="/images/damming/voorkant3.webp"
+        imageAlt="Voorgevel van Garage Damming aan de Prinsenweide"
       />
 
       <section className="bg-paper">
         <div className="grid md:grid-cols-2">
-          <Reveal className="relative hidden min-h-[360px] overflow-hidden md:block lg:min-h-[680px]">
+          <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[680px]">
             <Image
-              src="/images/garage/team.jpg"
-              alt={`Team van ${garage.name}`}
+              src="/images/damming/showroom5.webp"
+              alt="De showroom met occasions bij Garage Damming"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
             />
             <div
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.1)_0%,rgba(18,21,26,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(18,21,26,0)_60%,rgba(242,243,245,0.15)_100%)]"
+              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.1)_0%,rgba(24,24,24,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(24,24,24,0)_60%,rgba(245,244,241,0.15)_100%)]"
               aria-hidden
             />
           </Reveal>
@@ -110,11 +111,10 @@ export default function OverOnsPage() {
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16">
               <h2 className="shrink-0 font-display text-[clamp(2rem,3vw+1rem,3rem)] leading-tight tracking-[-0.02em] text-ink">
-                De mensen achter {garage.shortName}
+                Welkom bij {garage.shortName}
               </h2>
               <p className="max-w-md text-sm leading-relaxed text-muted md:text-right md:text-base">
-                Verkoop, werkplaats en service — een compact team dat u herkent
-                bij naam.
+                Van de showroom tot de werkplaats: alles voor uw auto onder één dak.
               </p>
             </div>
           </Reveal>

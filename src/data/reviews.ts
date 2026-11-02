@@ -1,65 +1,32 @@
 import type { Review } from "@/types/review";
-import { garage } from "@/config/garage";
 
+// Review texts and author names supplied by the site owner.
 export const reviews: Review[] = [
   {
-    id: "r-001",
-    author: "Marieke V.",
-    rating: 5,
-    date: "2026-08-14",
-    title: "Fijne aankoop, geen druk",
-    body: `Occasion gekocht bij ${garage.shortName}. Duidelijke uitleg over de staat van de auto, proefrit zonder haast en nette afhandeling. Aanrader in Apeldoorn.`,
-    source: "google",
-    featured: true,
+    "id": "google-mariuzs",
+    "author": "Mariuzs Kuchta",
+    "title": "Een fantastische werkplaats",
+    "body": "Een fantastische werkplaats, een geweldige autodealer, met auto's en extra's tot wel tweeduizend euro. Je kunt er een afspraak maken voor een APK-keuring.",
+    "rating": 5,
+    "source": "google",
+    "featured": true
   },
   {
-    id: "r-002",
-    author: "Peter Jansen",
-    rating: 5,
-    date: "2026-07-29",
-    title: "Werkplaats top",
-    body: "APK en grote beurt gecombineerd. Heldere prijsafspraak vooraf en de auto was dezelfde middag klaar. Prettige monteurs.",
-    source: "google",
-    featured: true,
+    "id": "google-margo",
+    "author": "Margo",
+    "title": "Blij met onze auto en de service",
+    "body": "We hebben onze eerste auto bij Ömer gekocht. Ömer is zeer vakbekwaam, vriendelijk en behulpzaam (zelfs tijdens zijn vakantie was hij beschikbaar voor vragen). We hebben gebruik gemaakt van autocoach voor een aankoopkeuring, ook dit was allemaal snel geregeld. Kort na de aankoop bleek de hendel van de cruise control niet goed te functioneren, dit werd gelijk passend opgelost. We zijn erg blij met onze nieuwe auto en de service van Damming Techniek!",
+    "rating": 5,
+    "source": "google",
+    "featured": true
   },
   {
-    id: "r-003",
-    author: "Sanne de Boer",
-    rating: 5,
-    date: "2026-07-02",
-    title: "Eerlijk advies",
-    body: "Kwam voor een andere auto, kreeg eerlijk te horen wat beter bij ons gebruik paste. Dat waardeer ik enorm.",
-    source: "google",
-    featured: true,
-  },
-  {
-    id: "r-004",
-    author: "Ahmed K.",
-    rating: 4,
-    date: "2026-06-18",
-    title: "Goede nazorg",
-    body: "Na aankoop snel geholpen met een kleine afstelling. Communicatie werkt prettig, ook telefonisch.",
-    source: "google",
-    featured: true,
-  },
-  {
-    id: "r-005",
-    author: "Linda Hofman",
-    rating: 5,
-    date: "2026-05-21",
-    title: "Al jaren klant",
-    body: "Al jaren klant voor onderhoud. Altijd netjes, op tijd en zonder verrassingen op de factuur.",
-    source: "website",
-    featured: false,
-  },
-  {
-    id: "r-006",
-    author: "Tom van Dijk",
-    rating: 5,
-    date: "2026-04-09",
-    title: "Proefrit goed geregeld",
-    body: "Afspraak gemaakt via de site, auto stond klaar en alles werd rustig doorgenomen. Deal.",
-    source: "google",
-    featured: false,
-  },
+    "id": "google-kim",
+    "author": "Kim Nanninga Music",
+    "title": "Behulpzaam en gastvrij",
+    "body": "Ik heb ik Januari een Mercedes Sprinter uit 2017 bij Ömer gekocht. Wat een pareltje! Ze is in top conditie en Ömer was super behulpzaam en gastvrij tijdens de verkoop. Duidelijk een man die houdt van zijn vak en staat voor betrouwbaarheid - en dat komt terug in alle goede reviews. Zeker een aanrader!",
+    "rating": 5,
+    "source": "google",
+    "featured": true
+  }
 ];

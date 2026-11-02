@@ -20,8 +20,7 @@ export function FeaturedOccasions({ vehicles }: FeaturedOccasionsProps) {
               Uitgelichte occasions
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-muted md:text-right md:text-base">
-              Zorgvuldig geselecteerd en klaar voor een proefrit. Op elke auto
-              staat vanaf welk bedrag u kunt leasen.
+              Zorgvuldig geselecteerd en klaar voor een proefrit. Bekijk ons aanbod en vind de auto die bij u past.
             </p>
           </div>
         </Reveal>

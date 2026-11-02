@@ -54,7 +54,7 @@ export function MobilityServices({
                     className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                   />
                   <div
-                    className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.05)_0%,rgba(18,21,26,0.45)_45%,rgba(18,21,26,0.92)_100%)]"
+                    className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.05)_0%,rgba(24,24,24,0.45)_45%,rgba(24,24,24,0.92)_100%)]"
                     aria-hidden
                   />
                   <div className="relative z-10 mt-auto px-4 pb-5 pt-16 sm:px-6 sm:pb-8 sm:pt-24 md:px-7 md:pb-10">

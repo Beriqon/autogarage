@@ -39,7 +39,7 @@ export function ContactLocation() {
               {address.postalCode} {address.city}
             </p>
             <p className="mt-5 text-base leading-relaxed text-muted">
-              Inkoop & verkoop: 06 24 46 08 53
+              Inkoop & verkoop: {garage.phoneDisplay}
               <br />
               Klantenservice: {garage.phoneDisplay}
             </p>

@@ -23,7 +23,7 @@ const Slider = React.forwardRef<
       <SliderPrimitive.Thumb
         key={index}
         className={cn(
-          "block size-4 border border-accent bg-surface shadow-[0_1px_4px_rgba(16,18,20,0.18)]",
+          "block size-4 border border-accent bg-surface shadow-[0_1px_4px_rgba(24,24,24,0.18)]",
           "rounded-[var(--radius-input)]",
           "transition-colors",
           "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",

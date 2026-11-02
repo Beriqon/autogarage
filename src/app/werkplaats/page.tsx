@@ -19,7 +19,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Werkplaats",
   description: `Moderne werkplaats bij ${garage.name} in ${garage.address.city}: APK, onderhoud, airco, banden en diagnose. Transparant advies en vervangend vervoer op aanvraag.`,
   path: "/werkplaats",
-  image: "/images/garage/workshop.jpg",
+  image: "/images/damming/werkplaats8.webp",
 });
 
 const pillars = [
@@ -43,7 +43,7 @@ const pillars = [
 export default function WerkplaatsPage() {
   const workshopServices = getServicesByCategory("workshop");
   const featuredWorkshop = getFeaturedServices(4, "workshop");
-  const gallery = getFeaturedGallery(6);
+  const gallery = getFeaturedGallery(20).filter((image) => image.category === "workshop");
 
   const breadcrumbs = [
     { name: "Home", path: "/" },
@@ -59,24 +59,26 @@ export default function WerkplaatsPage() {
       />
 
       <PageHero
-        title="Werkplaats"
+        action={{ label: "Plan uw werkplaatsbezoek", href: "/afspraak" }}
+        imagePosition="center 65%"
+        title="Uw auto in goede handen."
         description={`In onze moderne werkplaats in ${garage.address.city} gaat vakmanschap gepaard met ouderwetse service — APK, onderhoud, airco, banden en storingen.`}
-        imageSrc="/images/garage/workshop.jpg"
-        imageAlt={`Werkplaats van ${garage.name}`}
+        imageSrc="/images/damming/werkplaats8.webp"
+        imageAlt="De werkplaats van Garage Damming met hefbruggen"
       />
 
       <section className="bg-paper">
         <div className="grid md:grid-cols-2">
-          <Reveal className="relative hidden min-h-[360px] overflow-hidden md:block lg:min-h-[640px]">
+          <Reveal className="relative min-h-[420px] overflow-hidden lg:min-h-[640px]">
             <Image
-              src="/images/garage/workshop-bay.jpg"
-              alt={`Werkplaatsbrug bij ${garage.name}`}
+              src="/images/damming/werkplaats5.webp"
+              alt="Auto op de hefbrug in de werkplaats van Garage Damming"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
             />
             <div
-              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.1)_0%,rgba(18,21,26,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(18,21,26,0)_60%,rgba(242,243,245,0.15)_100%)]"
+              className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.1)_0%,rgba(24,24,24,0.35)_100%)] lg:bg-[linear-gradient(90deg,rgba(24,24,24,0)_60%,rgba(245,244,241,0.15)_100%)]"
               aria-hidden
             />
           </Reveal>
@@ -127,7 +129,7 @@ export default function WerkplaatsPage() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-[#12151a] text-white">
+      <section className="relative overflow-hidden bg-[#181818] text-white">
         <Container className="relative z-10 py-16 md:py-20 lg:py-24">
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16">
@@ -171,11 +173,10 @@ export default function WerkplaatsPage() {
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16">
               <h2 className="shrink-0 font-display text-[clamp(2rem,3vw+1rem,3rem)] leading-tight tracking-[-0.02em] text-ink">
-                Foto&apos;s uit onze werkplaats
+                Onderhoud in beeld
               </h2>
               <p className="max-w-md text-sm leading-relaxed text-muted md:text-right md:text-base">
-                Een indruk van hoe we werken — echte beelden van onze vestiging
-                in {garage.address.city}.
+                Van een controle op de hefbrug tot olie verversen en banden wisselen: aandacht voor elk onderdeel van uw auto.
               </p>
             </div>
           </Reveal>
@@ -196,7 +197,7 @@ export default function WerkplaatsPage() {
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
                     />
                     <div
-                      className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.05)_0%,rgba(18,21,26,0.75)_100%)]"
+                      className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.05)_0%,rgba(24,24,24,0.75)_100%)]"
                       aria-hidden
                     />
                     <div className="absolute inset-x-0 bottom-0 z-10 p-5 md:p-6">
@@ -212,7 +213,7 @@ export default function WerkplaatsPage() {
         </Container>
       </section>
 
-      <WorkshopGallery images={gallery} />
+      <WorkshopGallery images={gallery} title="Binnen in de werkplaats" description="Onze hefbruggen, gereedschappen en werkplekken, zoals u ze bij uw bezoek aantreft." />
 
       <CtaBand />
     </>

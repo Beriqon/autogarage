@@ -81,13 +81,12 @@ export type GarageConfig = {
   email: string;
   website: string;
   address: Address;
-  coordinates: Coordinates;
+  coordinates?: Coordinates;
   openingHours: OpeningHoursEntry[];
   socials: SocialLinks;
   reviewScore: number;
   reviewCount: number;
   googleReviews: ExternalReviews;
-  trustpilotReviews: ExternalReviews;
   stats: GarageStat[];
   uspItems: UspItem[];
   kvk?: string;

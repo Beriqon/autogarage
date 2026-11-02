@@ -15,12 +15,12 @@ function formatScore(score: number) {
 }
 
 export function Reviews({ reviews }: ReviewsProps) {
-  const { googleReviews, trustpilotReviews, reviewCount } = garage;
+  const { googleReviews } = garage;
 
   if (reviews.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#12151a] text-white">
+    <section className="relative overflow-hidden bg-[#181818] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
@@ -47,41 +47,35 @@ export function Reviews({ reviews }: ReviewsProps) {
               >
                 {formatScore(googleReviews.score)} / 5 op Google
               </a>{" "}
-              ({googleReviews.count} reviews) en{" "}
-              <a
-                href={trustpilotReviews.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white underline decoration-white/30 underline-offset-4 transition-colors hover:decoration-white"
-              >
-                {formatScore(trustpilotReviews.score)} / 5 op Trustpilot
-              </a>{" "}
-              ({trustpilotReviews.count} reviews). Samen {reviewCount}{" "}
-              beoordelingen — eerlijke feedback van mensen die bij ons kochten
-              of lieten onderhouden.
+              ({googleReviews.count} reviews). Lees hieronder een selectie uit de ervaringen van onze klanten.
             </p>
           </div>
         </Reveal>
 
-        <ul className="mt-14 grid gap-0 border-t border-white/15 sm:mt-16 sm:grid-cols-3">
+        <ul className="mt-14 grid gap-0 border-t border-white/15 sm:mt-16 lg:grid-cols-3">
           {reviews.map((review, index) => (
             <li
               key={review.id}
               className={
                 index > 0
-                  ? "border-t border-white/15 sm:border-t-0 sm:border-l"
+                  ? "border-t border-white/15 lg:border-t-0 lg:border-l"
                   : undefined
               }
             >
               <Reveal delay={0.06 * index} className="h-full">
-                <blockquote className="flex h-full flex-col px-0 py-10 sm:px-5 sm:py-12 lg:px-10">
-                  <p className="font-display text-[clamp(1.35rem,1.2vw+0.85rem,1.75rem)] leading-snug text-white">
+                <blockquote className="flex h-full flex-col px-0 py-10 lg:px-7 lg:py-12">
+                  <p className="font-display text-lg leading-relaxed md:text-xl text-white">
                     “{review.body}”
                   </p>
                   <footer className="mt-8">
                     <cite className="text-sm font-medium not-italic tracking-wide text-white">
                       {review.author}
                     </cite>
+                    {review.sourceUrl && (
+                      <a href={review.sourceUrl} target="_blank" rel="noopener noreferrer" className="mt-2 block text-xs text-white/60 underline underline-offset-4 hover:text-white">
+                        Bekijk de reviewbron
+                      </a>
+                    )}
                     {review.source === "google" ? (
                       <p className="mt-1.5 text-xs tracking-wide text-white/45">
                         Google · {review.rating}/5

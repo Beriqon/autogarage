@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { garage } from "@/config/garage";
 
-const DEFAULT_OG_IMAGE = "/images/garage/hero.jpg";
+const DEFAULT_OG_IMAGE = "/images/damming/voorkant3.webp";
 
 type PageMetaInput = {
   title: string;

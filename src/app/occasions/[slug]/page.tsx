@@ -15,7 +15,6 @@ import {
 } from "@/lib/structured-data";
 import { buildVehicleWhatsAppMessage } from "@/lib/whatsapp";
 import { formatMileage, formatPrice, vehicleTitle } from "@/lib/format";
-import { leaseFromPrice } from "@/lib/lease";
 import {
   bodyLabel,
   fuelLabel,
@@ -34,7 +33,6 @@ import { VehicleOptions } from "@/components/vehicles/vehicle-options";
 import { VehicleSpecs } from "@/components/vehicles/vehicle-specs";
 import { VehicleGrid } from "@/components/vehicles/vehicle-grid";
 import { StickyVehicleCta } from "@/components/vehicles/sticky-vehicle-cta";
-import { LeaseCalculator } from "@/components/vehicles/lease-calculator";
 import { Reveal } from "@/components/shared/reveal";
 
 const labelCopy = {
@@ -55,20 +53,18 @@ type PageProps = {
 function PurchaseCard({
   vehicle,
   title,
-  leaseFrom,
   isSold,
   appointmentHref,
   whatsappMessage,
 }: {
   vehicle: NonNullable<ReturnType<typeof getVehicleBySlug>>;
   title: string;
-  leaseFrom: number;
   isSold: boolean;
   appointmentHref: string;
   whatsappMessage: string;
 }) {
   return (
-    <div className="border border-line bg-surface p-5 md:p-6">
+    <div className="min-w-0 border border-line bg-surface p-5 md:p-6">
       <div className="flex flex-wrap gap-2">
         {vehicle.labels.map((label) => (
           <Badge key={label} variant="accent">
@@ -88,24 +84,18 @@ function PurchaseCard({
         </Badge>
       </div>
 
-      <h1 className="mt-4 font-display text-[clamp(1.5rem,1.2vw+1rem,2.15rem)] leading-tight text-ink">
-        {title}
+      <h1
+        className="mt-4 max-w-full font-display text-[clamp(1.5rem,1.2vw+1rem,2.15rem)] leading-tight text-ink"
+        style={{ overflowWrap: "anywhere", wordBreak: "break-word" }}
+      >
+        {title.split(/(?<=[/|])/).map((part, index) => (
+          <span key={index}>{part}<wbr /></span>
+        ))}
       </h1>
 
       <p className="mt-3 font-display text-2xl font-semibold text-ink md:text-3xl">
         {formatPrice(vehicle.price)}
       </p>
-      {leaseFrom > 0 ? (
-        <p className="mt-1 text-sm text-muted">
-          Vanaf{" "}
-          <a
-            href="#lease"
-            className="font-medium text-ink underline-offset-4 hover:underline"
-          >
-            {formatPrice(leaseFrom)} p/m leasen
-          </a>
-        </p>
-      ) : null}
 
       <dl className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 border-t border-line pt-5">
         {(
@@ -221,7 +211,6 @@ export default async function VehicleDetailPage({ params }: PageProps) {
   const whatsappMessage = buildVehicleWhatsAppMessage(garage, vehicle);
   const appointmentHref = `/afspraak?occasion=${encodeURIComponent(vehicle.slug)}`;
   const isSold = vehicle.status === "sold";
-  const leaseFrom = isSold ? 0 : leaseFromPrice(vehicle.price);
 
   const breadcrumbs = [
     { name: "Home", path: "/" },
@@ -254,11 +243,10 @@ export default async function VehicleDetailPage({ params }: PageProps) {
 
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,24rem)] lg:gap-10">
           <VehicleGallery images={vehicle.images} alt={title} />
-          <div className="lg:sticky lg:top-24">
+          <div className="min-w-0 lg:sticky lg:top-24">
             <PurchaseCard
               vehicle={vehicle}
               title={title}
-              leaseFrom={leaseFrom}
               isSold={isSold}
               appointmentHref={appointmentHref}
               whatsappMessage={whatsappMessage}
@@ -273,16 +261,6 @@ export default async function VehicleDetailPage({ params }: PageProps) {
               {vehicle.description}
             </p>
           </div>
-
-          {!isSold && vehicle.price > 0 ? (
-            <div className="max-h-[min(36rem,70dvh)] overflow-y-auto overscroll-y-contain lg:sticky lg:top-24 lg:row-span-3 lg:max-h-[calc(100dvh-7rem)] lg:self-start">
-              <LeaseCalculator
-                purchasePrice={vehicle.price}
-                vehicleSlug={vehicle.slug}
-                vehicleTitle={title}
-              />
-            </div>
-          ) : null}
 
           <VehicleOptions vehicle={vehicle} className="lg:col-start-1" />
           <VehicleSpecs vehicle={vehicle} className="lg:col-start-1" />

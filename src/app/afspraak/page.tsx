@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { garage } from "@/config/garage";
 import {
   getServiceBySlug,
@@ -39,7 +40,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Afspraak maken",
   description: `Plan een proefrit, APK of onderhoud bij ${garage.name} in ${garage.address.city}. Online aanvragen, snelle bevestiging.`,
   path: "/afspraak",
-  image: "/images/garage/workshop.jpg",
+  image: "/images/damming/voorkant3.webp",
 });
 
 export default async function AfspraakPage({ searchParams }: AfspraakPageProps) {
@@ -136,12 +137,12 @@ export default async function AfspraakPage({ searchParams }: AfspraakPageProps) 
 
         <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-12 lg:gap-16">
           <Reveal className="lg:col-span-7">
-            <div className="border border-line bg-surface p-6 md:p-8">
+            <div className="rounded-3xl border border-line bg-surface p-6 shadow-[0_16px_60px_-35px_rgba(24,24,24,0.25)] md:p-9">
               <h2 className="font-display text-xl text-ink md:text-2xl">
                 Afspraakformulier
               </h2>
               <p className="mt-2 text-sm leading-relaxed text-muted md:text-base">
-                Verplicht velden zijn gemarkeerd. U ontvangt een bevestiging
+                Verplichte velden zijn gemarkeerd. U ontvangt een bevestiging
                 zodra we een moment hebben afgestemd.
               </p>
               <div className="mt-8">
@@ -157,6 +158,11 @@ export default async function AfspraakPage({ searchParams }: AfspraakPageProps) 
 
           <Reveal delay={0.08} className="lg:col-span-5">
             <div className="space-y-10">
+              <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                <Image src="/images/damming/wachtruimte.webp" alt="Welkom aan de Prinsenweide" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-[center_65%]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" aria-hidden />
+                <figcaption className="absolute inset-x-0 bottom-0 p-6 font-display text-2xl text-white">Welkom aan de Prinsenweide</figcaption>
+              </figure>
               <div>
                 <h2 className="font-display text-xl text-ink">
                   Liever direct contact?

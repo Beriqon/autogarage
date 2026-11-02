@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Vehicle } from "@/types/vehicle";
 import { formatMileage, formatPrice, vehicleTitle } from "@/lib/format";
-import { leaseFromPrice } from "@/lib/lease";
 import { cn } from "@/lib/cn";
 
 const labelCopy: Record<Vehicle["labels"][number], string> = {
@@ -35,8 +34,6 @@ export function VehicleCard({
   const image = vehicle.images[0];
   const statusLabel = statusCopy[vehicle.status];
   const doors = vehicle.specifications.doors;
-  const leaseFrom =
-    vehicle.status === "sold" ? 0 : leaseFromPrice(vehicle.price);
 
   return (
     <article className={cn("group h-full min-w-0", className)}>
@@ -44,7 +41,7 @@ export function VehicleCard({
         href={`/occasions/${vehicle.slug}`}
         className="flex h-full min-w-0 flex-col outline-offset-4"
       >
-        <div className="relative aspect-[16/10] overflow-hidden bg-[#e4e6ea]">
+        <div className="relative aspect-[16/10] overflow-hidden bg-[#e5e2dd]">
           {image ? (
             <Image
               src={image}
@@ -105,11 +102,6 @@ export function VehicleCard({
               <p className="font-display text-lg tracking-tight text-ink sm:text-xl md:text-2xl">
                 {formatPrice(vehicle.price)}
               </p>
-              {leaseFrom > 0 ? (
-                <p className="mt-1 text-xs text-muted sm:text-sm">
-                  Vanaf {formatPrice(leaseFrom)} p/m leasen
-                </p>
-              ) : null}
             </div>
             <span className="inline-flex rounded-full bg-ink px-3 py-1.5 text-xs font-medium text-white transition-transform duration-300 group-hover:scale-[1.03] sm:px-4 sm:py-2 sm:text-sm">
               Bekijk

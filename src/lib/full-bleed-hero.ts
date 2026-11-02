@@ -7,7 +7,6 @@ export const FULL_BLEED_HERO_PATHS = [
   "/over-ons",
   "/contact",
   "/auto-verkopen",
-  "/leasen",
 ] as const;
 
 export function hasFullBleedHero(pathname: string): boolean {

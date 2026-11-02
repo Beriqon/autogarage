@@ -7,9 +7,9 @@ import { WhatsAppButton } from "@/components/shared/whatsapp-button";
 
 export function CtaBand() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#12151a] py-28 md:py-36 lg:py-44">
+    <section className="relative isolate overflow-hidden bg-[#181818] py-28 md:py-36 lg:py-44">
       <Image
-        src="/images/garage/hero.jpg"
+        src="/images/stock/inspection.jpg"
         alt=""
         fill
         sizes="100vw"
@@ -17,7 +17,7 @@ export function CtaBand() {
         aria-hidden
       />
       <div
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(18,21,26,0.92)_0%,rgba(18,21,26,0.72)_55%,rgba(18,21,26,0.45)_100%)]"
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(24,24,24,0.92)_0%,rgba(24,24,24,0.72)_55%,rgba(24,24,24,0.45)_100%)]"
         aria-hidden
       />
 

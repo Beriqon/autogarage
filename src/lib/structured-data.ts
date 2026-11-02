@@ -10,7 +10,7 @@ type BreadcrumbItem = {
 };
 
 export function localBusinessJsonLd() {
-  const { address, openingHours, coordinates } = garage;
+  const { address, openingHours } = garage;
 
   return {
     "@context": "https://schema.org",
@@ -30,11 +30,6 @@ export function localBusinessJsonLd() {
       addressLocality: address.city,
       addressRegion: address.region,
       addressCountry: address.countryCode,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: coordinates.lat,
-      longitude: coordinates.lng,
     },
     openingHoursSpecification: openingHours
       .filter((entry) => !entry.closed && entry.open && entry.close)
@@ -73,7 +68,7 @@ export function vehicleJsonLd(vehicle: Vehicle) {
   const images =
     vehicle.images.length > 0
       ? vehicle.images.map((src) => absoluteUrl(src))
-      : [absoluteUrl("/images/garage/hero.jpg")];
+      : [absoluteUrl("/images/stock/inspection.jpg")];
 
   return {
     "@context": "https://schema.org",

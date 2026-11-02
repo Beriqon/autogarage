@@ -13,7 +13,7 @@ export function ServicesShowcase({ services }: ServicesShowcaseProps) {
   if (services.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#12151a] text-white">
+    <section className="relative overflow-hidden bg-[#181818] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
@@ -59,7 +59,7 @@ export function ServicesShowcase({ services }: ServicesShowcaseProps) {
                 </div>
 
                 <div
-                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.15)_0%,rgba(18,21,26,0.4)_45%,rgba(18,21,26,0.9)_100%)] transition-opacity duration-500 group-hover:opacity-95"
+                  className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.15)_0%,rgba(24,24,24,0.4)_45%,rgba(24,24,24,0.9)_100%)] transition-opacity duration-500 group-hover:opacity-95"
                   aria-hidden
                 />
 

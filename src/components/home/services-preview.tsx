@@ -18,7 +18,7 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
   if (services.length === 0) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#12151a] text-white">
+    <section className="relative overflow-hidden bg-[#181818] text-white">
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.07]"
         style={{
@@ -37,8 +37,7 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
               Onze diensten
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-white/75 md:text-right md:text-base">
-              APK, onderhoud, diagnose en banden in onze werkplaats. Plus 24/7
-              takelservice: altijd bereikbaar, altijd hulp.
+              APK, onderhoud, diagnose, banden en airco-service in onze werkplaats. Vakkundig geholpen, met duidelijke afspraken.
             </p>
           </div>
         </Reveal>
@@ -60,7 +59,7 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
                 className="object-cover"
               />
               <div
-                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(18,21,26,0.25)_0%,rgba(18,21,26,0.6)_50%,rgba(18,21,26,0.88)_100%)]"
+                className="absolute inset-0 bg-[linear-gradient(180deg,rgba(24,24,24,0.25)_0%,rgba(24,24,24,0.6)_50%,rgba(24,24,24,0.88)_100%)]"
                 aria-hidden
               />
               <div className="relative z-10 flex flex-col items-center">
@@ -118,8 +117,8 @@ export function ServicesPreview({ services }: ServicesPreviewProps) {
                   className={cn(
                     "absolute inset-0 transition-colors duration-500",
                     isActive
-                      ? "bg-[linear-gradient(180deg,rgba(18,21,26,0.45)_0%,rgba(18,21,26,0.72)_100%)]"
-                      : "bg-[linear-gradient(180deg,rgba(18,21,26,0.15)_0%,rgba(18,21,26,0.55)_100%)]",
+                      ? "bg-[linear-gradient(180deg,rgba(24,24,24,0.45)_0%,rgba(24,24,24,0.72)_100%)]"
+                      : "bg-[linear-gradient(180deg,rgba(24,24,24,0.15)_0%,rgba(24,24,24,0.55)_100%)]",
                   )}
                   aria-hidden
                 />

@@ -26,7 +26,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Occasions",
   description: `Bekijk het actuele occasionaanbod van ${garage.name} in ${garage.address.city}. Filter op merk, prijs, brandstof en meer.`,
   path: "/occasions",
-  image: "/images/garage/showroom-cars.jpg",
+  image: "/images/damming/showroom3.webp",
 });
 
 type OccasionsPageProps = {
@@ -54,13 +54,15 @@ export default async function OccasionsPage({
       />
 
       <PageHero
-        title="Occasions"
-        description={`Zorgvuldig geselecteerd en klaar voor een proefrit bij ${garage.shortName} in ${garage.address.city}. Elke auto is ook te leasen: op de kaart staat vanaf welk maandbedrag.`}
-        imageSrc="/images/garage/showroom-cars.jpg"
-        imageAlt={`Occasionaanbod in de showroom van ${garage.name}`}
+        action={{ label: "Bekijk het aanbod", href: "#aanbod" }}
+        imagePosition="center 65%"
+        title="Uw volgende auto begint hier."
+        description={`Zorgvuldig geselecteerd en klaar voor een proefrit bij ${garage.shortName} in ${garage.address.city}.`}
+        imageSrc="/images/damming/showroom3.webp"
+        imageAlt="Occasions in de showroom van Garage Damming"
       />
 
-      <section className="bg-paper">
+      <section id="aanbod" className="scroll-mt-24 bg-paper">
         <Container className="py-14 md:py-16 lg:py-20">
           <Reveal>
             <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16">
@@ -68,8 +70,7 @@ export default async function OccasionsPage({
                 Ons aanbod
               </h2>
               <p className="max-w-md text-sm leading-relaxed text-muted md:text-right md:text-base">
-                Zoek, filter en sorteer — deelbare URLs houden je selectie
-                bewaard.
+                Vind de auto die bij u past. Filter op uw wensen en kom langs voor een proefrit.
               </p>
             </div>
           </Reveal>

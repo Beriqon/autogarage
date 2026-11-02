@@ -2,7 +2,8 @@ export type Review = {
   id: string;
   author: string;
   rating: number;
-  date: string;
+  date?: string;
+  sourceUrl?: string;
   title: string;
   body: string;
   source?: "google" | "website";

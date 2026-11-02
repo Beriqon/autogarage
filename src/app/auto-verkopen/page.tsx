@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone } from "lucide-react";
 import { garage } from "@/config/garage";
 import { createPageMetadata } from "@/lib/seo";
@@ -26,7 +27,7 @@ export const metadata: Metadata = createPageMetadata({
   title: "Wij kopen uw auto",
   description: `Verkoop of ruil uw auto in bij ${garage.name} in ${garage.address.city}. Vul kenteken en kilometerstand in voor een vrijblijvend bod.`,
   path: "/auto-verkopen",
-  image: "/images/garage/showroom-1.jpg",
+  image: "/images/damming/showroom2.webp",
 });
 
 export default function AutoVerkopenPage() {
@@ -44,18 +45,20 @@ export default function AutoVerkopenPage() {
       />
 
       <PageHero
+        action={{ label: "Bied uw auto aan", href: "#bod-aanvragen" }}
+        imagePosition="center 65%"
         eyebrow="Inkoop"
-        title="Wij kopen uw auto"
+        title="Een goed bod. Een helder verhaal."
         description={`Stuur uw kenteken en kilometerstand. ${garage.shortName} neemt contact op met een vrijblijvend bod — inruil of directe verkoop.`}
-        imageSrc="/images/garage/showroom-1.jpg"
-        imageAlt={`Occasions bij ${garage.name} in ${garage.address.city}`}
+        imageSrc="/images/damming/showroom2.webp"
+        imageAlt="De showroom van Garage Damming"
       />
 
-      <section className="bg-paper">
+      <section id="bod-aanvragen" className="scroll-mt-24 bg-paper">
         <Container className="py-16 md:py-20 lg:py-24">
           <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
             <Reveal className="lg:col-span-7">
-              <div className="border border-line bg-surface p-6 md:p-8">
+              <div className="rounded-3xl border border-line bg-surface p-6 shadow-[0_16px_60px_-35px_rgba(24,24,24,0.25)] md:p-9">
                 <h2 className="font-display text-xl text-ink md:text-2xl">
                   Vraag een bod aan
                 </h2>
@@ -72,6 +75,11 @@ export default function AutoVerkopenPage() {
 
             <Reveal delay={0.08} className="lg:col-span-5">
               <div className="space-y-10 lg:sticky lg:top-28">
+              <figure className="relative aspect-[4/3] overflow-hidden rounded-3xl">
+                <Image src="/images/damming/showroom4.webp" alt="Persoonlijk contact, van bod tot overdracht" fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover object-[center_65%]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" aria-hidden />
+                <figcaption className="absolute inset-x-0 bottom-0 p-6 font-display text-2xl text-white">Persoonlijk contact, van bod tot overdracht</figcaption>
+              </figure>
                 <div>
                   <h2 className="font-display text-xl text-ink md:text-2xl">
                     Zo werkt het
@@ -106,7 +114,7 @@ export default function AutoVerkopenPage() {
                       )}
                     >
                       <Phone className="size-4" aria-hidden />
-                      06 24 46 08 53
+                      {garage.phoneDisplay}
                     </Link>
                     <WhatsAppButton
                       size="md"

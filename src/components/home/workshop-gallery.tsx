@@ -1,18 +1,20 @@
 "use client";
 
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import type { GalleryImage } from "@/types/review";
-import { garage } from "@/config/garage";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/shared/reveal";
 
 type WorkshopGalleryProps = {
+  title?: string;
+  description?: string;
   images: GalleryImage[];
 };
 
-export function WorkshopGallery({ images }: WorkshopGalleryProps) {
-  const [emblaRef] = useEmblaCarousel({
+export function WorkshopGallery({ images, title = "Een kijkje bij Damming", description = "Ontdek onze showroom en werkplaats, met aandacht voor onderhoud tot in de details." }: WorkshopGalleryProps) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     containScroll: "trimSnaps",
     dragFree: true,
@@ -26,12 +28,15 @@ export function WorkshopGallery({ images }: WorkshopGalleryProps) {
         <Reveal>
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between md:gap-16">
             <h2 className="shrink-0 font-display text-[clamp(2rem,3vw+1rem,3rem)] leading-tight tracking-[-0.02em] text-ink">
-              Showroom & werkplaats
+              {title}
             </h2>
             <p className="max-w-md text-sm leading-relaxed text-muted md:text-right md:text-base">
-              Een indruk van onze ruimte in {garage.address.city} — van
-              showroomvloer tot werkplaatsbank.
+              {description}
             </p>
+          </div>
+          <div className="mt-6 flex justify-end gap-2">
+            <button type="button" aria-label="Vorige foto" onClick={() => emblaApi?.scrollPrev()} className="grid size-11 place-items-center rounded-full border border-line text-ink transition-colors hover:bg-ink hover:text-white"><ArrowLeft size={18} /></button>
+            <button type="button" aria-label="Volgende foto" onClick={() => emblaApi?.scrollNext()} className="grid size-11 place-items-center rounded-full border border-line text-ink transition-colors hover:bg-ink hover:text-white"><ArrowRight size={18} /></button>
           </div>
         </Reveal>
       </Container>
@@ -44,25 +49,26 @@ export function WorkshopGallery({ images }: WorkshopGalleryProps) {
                 key={image.id}
                 className={
                   index % 2 === 0
-                    ? "relative min-w-0 shrink-0 grow-0 basis-[78%] overflow-hidden sm:basis-[55%] lg:basis-[42%]"
-                    : "relative min-w-0 shrink-0 grow-0 basis-[68%] overflow-hidden sm:basis-[48%] lg:basis-[36%]"
+                    ? "relative min-w-0 shrink-0 grow-0 basis-[76%] overflow-hidden sm:basis-[55%] lg:basis-[28%]"
+                    : "relative min-w-0 shrink-0 grow-0 basis-[70%] overflow-hidden sm:basis-[48%] lg:basis-[25%]"
                 }
               >
                 <div
                   className={
                     index % 2 === 0
-                      ? "relative aspect-[4/5]"
-                      : "relative aspect-[5/6] md:mt-12"
+                      ? "relative aspect-[3/4]"
+                      : "relative aspect-[3/4] md:mt-12"
                   }
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    sizes="(max-width: 1024px) 75vw, 42vw"
+                    sizes="(max-width: 1024px) 75vw, 28vw"
                     className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
                   />
                 </div>
+                <p className="mt-4 text-sm text-muted">{image.alt}</p>
               </div>
             ))}
           </div>

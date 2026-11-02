@@ -2,10 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
-import { garage } from "@/config/garage";
 import { mainNav } from "@/config/navigation";
 import { cn } from "@/lib/cn";
 import { hasFullBleedHero } from "@/lib/full-bleed-hero";
@@ -34,25 +33,18 @@ export function Header() {
         "fixed top-0 right-0 left-0 z-40 transition-[background-color,box-shadow,border-color,backdrop-filter] duration-300",
         overHero
           ? "border-b border-transparent bg-transparent"
-          : "border-b border-line bg-surface/95 shadow-[0_1px_0_rgba(18,21,26,0.06)] backdrop-blur-md",
+          : "border-b border-line bg-surface/95 shadow-[0_1px_0_rgba(24,24,24,0.06)] backdrop-blur-md",
       )}
     >
       <Container className="flex h-16 items-center justify-between gap-4 lg:h-[4.75rem]">
         <Link
           href="/"
           className={cn(
-            "relative inline-flex shrink-0 items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
+            "relative inline-flex h-12 w-44 shrink-0 items-center lg:w-48 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent",
           )}
-          aria-label={`${garage.name} – naar home`}
+          aria-label="Garage Damming – naar home"
         >
-          <Image
-            src={garage.logo}
-            alt={garage.name}
-            width={128}
-            height={128}
-            className="size-12 rounded-full lg:size-16"
-            priority
-          />
+          <BrandLogo className={overHero ? "text-white" : "text-ink"} />
         </Link>
 
         <nav

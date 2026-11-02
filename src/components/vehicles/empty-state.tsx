@@ -10,7 +10,7 @@ export function EmptyState({ className, hasFilters = false }: EmptyStateProps) {
   return (
     <div
       className={cn(
-        "flex flex-col items-start gap-5 bg-[#12151a] px-8 py-14 text-white md:px-12 md:py-16",
+        "flex flex-col items-start gap-5 bg-[#181818] px-8 py-14 text-white md:px-12 md:py-16",
         className,
       )}
     >

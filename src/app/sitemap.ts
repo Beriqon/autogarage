@@ -12,8 +12,8 @@ const staticRoutes = [
   "/contact",
   "/afspraak",
   "/auto-verkopen",
-  "/leasen",
   "/privacy",
+  "/cookies",
   "/voorwaarden",
 ] as const;
 
